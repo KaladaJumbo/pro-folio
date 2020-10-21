@@ -1752,3 +1752,226 @@ Processing by UsersController#create as */*
 Completed 200 OK in 280ms (Views: 1.4ms | ActiveRecord: 3.7ms | Allocations: 8934)
 
 
+Started POST "/users" for ::1 at 2020-10-20 23:31:52 -0400
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"kalada", "last_name"=>"mmmmmmm", "username"=>"bobzzzzz", "password"=>"[FILTERED]", "user"=>{"first_name"=>"kalada", "last_name"=>"mmmmmmm", "username"=>"bobzzzzz"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bobzzzzz"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.6ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "kalada"], ["last_name", "mmmmmmm"], ["created_at", "2020-10-21 03:31:53.091448"], ["updated_at", "2020-10-21 03:31:53.091448"], ["username", "bobzzzzz"], ["password_digest", "$2a$12$hjOgfwwnD7nWAiYS24uZgO8gRHms3uPZ9.RDxurwxDA2R3VKgHbui"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 200 OK in 268ms (Views: 0.4ms | ActiveRecord: 2.3ms | Allocations: 3621)
+
+
+Started POST "/users" for ::1 at 2020-10-20 23:33:43 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"mark", "last_name"=>"mark ", "username"=>"mark", "password"=>"[FILTERED]", "user"=>{"first_name"=>"mark", "last_name"=>"mark ", "username"=>"mark"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mark"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "mark"], ["last_name", "mark "], ["created_at", "2020-10-21 03:33:43.748840"], ["updated_at", "2020-10-21 03:33:43.748840"], ["username", "mark"], ["password_digest", "$2a$12$zczfnItgATAqNFzv4br8wesoTcGv1NYGkFBZRxIvN3Uy/ZYCPos5a"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 200 OK in 282ms (Views: 0.3ms | ActiveRecord: 2.0ms | Allocations: 3625)
+
+
+Started POST "/users" for ::1 at 2020-10-20 23:40:13 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"anney", "last_name"=>"anney", "username"=>"lolz", "password"=>"[FILTERED]", "user"=>{"first_name"=>"anney", "last_name"=>"anney", "username"=>"lolz"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "lolz"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "anney"], ["last_name", "anney"], ["created_at", "2020-10-21 03:40:14.236457"], ["updated_at", "2020-10-21 03:40:14.236457"], ["username", "lolz"], ["password_digest", "$2a$12$lRf40UqS0DWdmzDM.VwWJuadGjw1TKO79TwzlXC.pLHGCj9LkHn/q"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 200 OK in 264ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 3620)
+
+
+Started POST "/users" for ::1 at 2020-10-20 23:40:59 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"amy", "last_name"=>"amy", "username"=>"doom", "password"=>"[FILTERED]", "user"=>{"first_name"=>"amy", "last_name"=>"amy", "username"=>"doom"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "doom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "amy"], ["last_name", "amy"], ["created_at", "2020-10-21 03:40:59.542388"], ["updated_at", "2020-10-21 03:40:59.542388"], ["username", "doom"], ["password_digest", "$2a$12$M2f.fFSSH1IHuKeJcAjwtuPAyVPUyEN0bzHayWG5W8a3BCQIEDWC2"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 200 OK in 262ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 3627)
+
+
+Started POST "/users" for ::1 at 2020-10-20 23:44:30 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"kalada", "last_name"=>"amy", "username"=>"doomzzzz", "password"=>"[FILTERED]", "user"=>{"first_name"=>"kalada", "last_name"=>"amy", "username"=>"doomzzzz"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "doomzzzz"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "kalada"], ["last_name", "amy"], ["created_at", "2020-10-21 03:44:31.179099"], ["updated_at", "2020-10-21 03:44:31.179099"], ["username", "doomzzzz"], ["password_digest", "$2a$12$bmoMJK9Cy.Fc.9zLwmurteakbpF9ag5RSFTzQGS2TJYvAir1IJUNq"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 200 OK in 271ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 3603)
+
+
+Started POST "/users" for ::1 at 2020-10-20 23:44:49 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"anney", "last_name"=>"mark ", "username"=>"bobzzzzz", "password"=>"[FILTERED]", "user"=>{"first_name"=>"anney", "last_name"=>"mark ", "username"=>"bobzzzzz"}}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bobzzzzz"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 204 No Content in 267ms (ActiveRecord: 0.4ms | Allocations: 4146)
+
+
+Started POST "/users" for ::1 at 2020-10-20 23:45:19 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"anney", "last_name"=>"mark ", "username"=>"ha", "password"=>"[FILTERED]", "user"=>{"first_name"=>"anney", "last_name"=>"mark ", "username"=>"ha"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "ha"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "anney"], ["last_name", "mark "], ["created_at", "2020-10-21 03:45:20.043979"], ["updated_at", "2020-10-21 03:45:20.043979"], ["username", "ha"], ["password_digest", "$2a$12$zIcmnQOuD5KBNupCaCnnoebpuQrU0bt43owkdhhNBalnwFENtQyi6"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 200 OK in 270ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 3606)
+
+
+Started POST "/users" for ::1 at 2020-10-21 00:27:32 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"kalada", "last_name"=>"william-jumbo", "username"=>"theBestAround", "password"=>"[FILTERED]", "user"=>{"first_name"=>"kalada", "last_name"=>"william-jumbo", "username"=>"theBestAround"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "theBestAround"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "kalada"], ["last_name", "william-jumbo"], ["created_at", "2020-10-21 04:27:32.694061"], ["updated_at", "2020-10-21 04:27:32.694061"], ["username", "theBestAround"], ["password_digest", "$2a$12$cAU.iCInDiwlHKeHqKHjPeb51WJisJn7p6awPrTlHP/ksMZCsxo8u"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 200 OK in 267ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 3605)
+
+
+Started POST "/users" for ::1 at 2020-10-21 00:30:22 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"kalada", "last_name"=>"william-jumbo", "username"=>"here", "password"=>"[FILTERED]", "user"=>{"first_name"=>"kalada", "last_name"=>"william-jumbo", "username"=>"here"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "here"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "kalada"], ["last_name", "william-jumbo"], ["created_at", "2020-10-21 04:30:22.462713"], ["updated_at", "2020-10-21 04:30:22.462713"], ["username", "here"], ["password_digest", "$2a$12$A61IVYxTBzbQGl0PkmsUsO3xdiUQlODOFwPPwppGROqfmrkFEOBAS"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 200 OK in 269ms (Views: 0.3ms | ActiveRecord: 1.8ms | Allocations: 3602)
+
+
+Started POST "/users" for ::1 at 2020-10-21 00:33:19 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"anney", "last_name"=>"mark ", "username"=>"help", "password"=>"[FILTERED]", "user"=>{"first_name"=>"anney", "last_name"=>"mark ", "username"=>"help"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "help"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "anney"], ["last_name", "mark "], ["created_at", "2020-10-21 04:33:19.363553"], ["updated_at", "2020-10-21 04:33:19.363553"], ["username", "help"], ["password_digest", "$2a$12$Qb/5EO8rcV1wyTcRaDJqq.DDm/ti2KBuI6DrqrE.d1Z1EGFvo3tXi"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 200 OK in 268ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 3603)
+
+
+Started POST "/users" for ::1 at 2020-10-21 00:44:47 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"kalada", "last_name"=>"mark ", "username"=>"uuuuuu", "password"=>"[FILTERED]", "user"=>{"first_name"=>"kalada", "last_name"=>"mark ", "username"=>"uuuuuu"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "uuuuuu"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "kalada"], ["last_name", "mark "], ["created_at", "2020-10-21 04:44:48.246048"], ["updated_at", "2020-10-21 04:44:48.246048"], ["username", "uuuuuu"], ["password_digest", "$2a$12$VJdrPrm3rRmqIptMvTU8huNl9jv2vFeYQF6/.ldDjFA9WZDLBIsv."]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 200 OK in 268ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 3605)
+
+
+Started POST "/users" for ::1 at 2020-10-21 00:48:16 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"kalada", "last_name"=>"mmmmmmm", "username"=>"jet", "password"=>"[FILTERED]", "user"=>{"first_name"=>"kalada", "last_name"=>"mmmmmmm", "username"=>"jet"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "jet"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "kalada"], ["last_name", "mmmmmmm"], ["created_at", "2020-10-21 04:48:16.961974"], ["updated_at", "2020-10-21 04:48:16.961974"], ["username", "jet"], ["password_digest", "$2a$12$HkcAmKjG2vPKQXsmo7VzDeqWFV6h.yXXS6YR7gvAuUpdcSi.nM7UO"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 200 OK in 267ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 3602)
+
+
+Started POST "/users" for ::1 at 2020-10-21 00:57:18 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"kalada", "last_name"=>"william-jumbo", "username"=>"goodjob", "password"=>"[FILTERED]", "user"=>{"first_name"=>"kalada", "last_name"=>"william-jumbo", "username"=>"goodjob"}}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "goodjob"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "kalada"], ["last_name", "william-jumbo"], ["created_at", "2020-10-21 04:57:19.049605"], ["updated_at", "2020-10-21 04:57:19.049605"], ["username", "goodjob"], ["password_digest", "$2a$12$4pJSsx9K0a7OLkd6F5wjq.iwJV3wBTQdDmTdmOMF38QGJr8UeYRJ6"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 200 OK in 263ms (Views: 0.3ms | ActiveRecord: 2.9ms | Allocations: 3605)
+
+
+Started POST "/users" for ::1 at 2020-10-21 00:57:19 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"kalada", "last_name"=>"william-jumbo", "username"=>"goodjob", "password"=>"[FILTERED]", "user"=>{"first_name"=>"kalada", "last_name"=>"william-jumbo", "username"=>"goodjob"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "goodjob"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 204 No Content in 260ms (ActiveRecord: 0.3ms | Allocations: 3743)
+
+
+Started POST "/users" for ::1 at 2020-10-21 01:01:59 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"kalada", "last_name"=>"william-jumbo", "username"=>"jk", "password"=>"[FILTERED]", "user"=>{"first_name"=>"kalada", "last_name"=>"william-jumbo", "username"=>"jk"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "jk"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "kalada"], ["last_name", "william-jumbo"], ["created_at", "2020-10-21 05:02:00.006922"], ["updated_at", "2020-10-21 05:02:00.006922"], ["username", "jk"], ["password_digest", "$2a$12$w8/KsP.sZBSdAHiN3vmVL.qDRhbKoSspOSDC.gq6lya5vHli519AG"]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 200 OK in 269ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 3605)
+
+
+Started POST "/users" for ::1 at 2020-10-21 01:02:00 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"kalada", "last_name"=>"william-jumbo", "username"=>"jk", "password"=>"[FILTERED]", "user"=>{"first_name"=>"kalada", "last_name"=>"william-jumbo", "username"=>"jk"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "jk"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:17:in `create'
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  ↳ app/controllers/users_controller.rb:17:in `create'
+Completed 204 No Content in 266ms (ActiveRecord: 0.4ms | Allocations: 4244)
+
+

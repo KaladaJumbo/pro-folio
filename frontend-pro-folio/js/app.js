@@ -1,5 +1,7 @@
 $(document).foundation();
 
+/*************************************** GLOBALS *******************************************/ 
+
 //navbar
 const menuUl = document.querySelector(".menu").children
 const home = menuUl[0]
@@ -7,35 +9,85 @@ const skills = menuUl[1]
 const projects = menuUl[2]
 const contact = menuUl[3]
 //minibar
-const minibar = document.querySelector(".top-list-right").children
-const clientLogin = minibar[0]
-const signup = minibar[1]
-const support = minibar[2]
+const minibar = () => document.querySelector(".top-list-right")
+
+
 //login
 const form = document.querySelector("#signin")
 
+/*******************************************************************************************/ 
 
 
 
+/************************************* EVENT LISTENERS *************************************/ 
 
 document.addEventListener("DOMContentLoaded", () => {
-    addEventListenersToButtons();
+    miniBarConfig();
+    addNavBarListeners();
 })
 
-function addEventListenersToButtons() {
+
+function addNavBarListeners() {
     //navbar
     home.addEventListener("click", () => {});
     skills.addEventListener("click", () => {});
     projects.addEventListener("click", () => {});
     contact.addEventListener("click", () => {});
-    //minibar
+    
+}
+
+function notLoggedInMiniBarListener() {
+    let bar = minibar().children
+    let clientLogin = bar[0]
+    let signup = bar[1]
+    let support = bar[2]
+
     clientLogin.addEventListener("click", () => {
-        login()
+        userLogin()
     });
     signup.addEventListener("click", () => {
         signUp()
     });
     support.addEventListener("click", () => {});
+}
+
+function loggedInMiniBarListener() {
+    let logout = document.querySelector(".top-list-right").children[0]
+    let userInfo = document.querySelector(".top-list-right").children[1]
+    let support = document.querySelector(".top-list-right").children[2]
+
+    logout.addEventListener("click", () => {
+        userLogout()
+    });
+    userInfo.addEventListener("click", () => {
+        userInfo()
+    });
+    support.addEventListener("click", () => {
+        console.log("support button logged in")
+    });
+}
+
+/*******************************************************************************************/ 
+
+function userLogin() {
+    form.innerHTML = ""
+    form.innerHTML = `
+    <form class="login">
+     <div class="sign-in-form">
+       <h4 class="text-center">login</h4>
+       <label for="sign-in-form-username">Username</label>
+       <input type="text" class="sign-in-form-username" id="sign-in-form-username">
+       <label for="sign-in-form-password">Password</label>
+       <input type="text" class="sign-in-form-password" id="sign-in-form-password">
+       <button type="submit" class="sign-in-form-button">Sign In</button>
+     </div>
+   </form>
+    `
+    let loginForm = document.querySelector(".login")
+    loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        handleLogin(e)
+    })
 }
 
 function signUp() {
@@ -67,25 +119,13 @@ function signUp() {
     })
 }
 
-function login() {
-    form.innerHTML = ""
-    form.innerHTML = `
-    <form class="login">
-     <div class="sign-in-form">
-       <h4 class="text-center">login</h4>
-       <label for="sign-in-form-username">Username</label>
-       <input type="text" class="sign-in-form-username" id="sign-in-form-username">
-       <label for="sign-in-form-password">Password</label>
-       <input type="text" class="sign-in-form-password" id="sign-in-form-password">
-       <button type="submit" class="sign-in-form-button">Sign In</button>
-     </div>
-   </form>
-    `
-    let loginForm = document.querySelector(".login")
-    loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        handleLogin(e)
-    })
+function userLogout() {
+    sessionStorage.removeItem("currentUser")
+    window.location.reload();
+}
+
+function userInfo() {
+    
 }
 
 function handleSignUp(e) {
@@ -110,13 +150,58 @@ function handleSignUp(e) {
     fetch("http://localhost:3000/users", meta)
     .then(r => r.json())
     .then(data => {
-        console.log(data)
+        console.log(data); //dont forget to delete me after use 
+        sessionStorage.setItem("currentUser", data.username);
+        logUserIn();
     })
     .catch(error => {
         console.log("failure")
+        failedSignup(error)
     })
 }
 
 function handleLogin(e) {
-
+    
 }
+
+function logUserIn() {
+    //change welcome message in nav bar
+    welcomeMessage = document.querySelector(".welcome")
+    welcomeMessage.innerText = "hello, " + sessionStorage.getItem("currentUser")
+
+    //remove form 
+    form.innerHTML = ""
+
+    // rename and relisten to buttons
+    topMenuButtonConfig()
+}
+
+function failedSignup(params) {
+    //handle what happens if database rejects you
+}
+
+function miniBarConfig() {
+    let welcomeMessage = document.querySelector(".welcome")
+    
+    if(!!sessionStorage.getItem("currentUser")){      //if currentuser exist return true
+        welcomeMessage.innerText = "Hello, " + sessionStorage.getItem("currentUser")
+        minibar().innerHTML = `
+        <li>Logout</li>
+        <li>Profile Information</li>
+        <li>Support</li>
+        `
+        loggedInMiniBarListener();
+    }
+    else {
+        welcomeMessage.innerText = ""
+        minibar().innerHTML = `
+        <li>Client Login</li>
+        <li>Sign-up</li>
+        <li>Support</li>
+        `
+        notLoggedInMiniBarListener();
+    }
+}
+
+
+
