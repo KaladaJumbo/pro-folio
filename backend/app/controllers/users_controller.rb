@@ -16,8 +16,8 @@ class UsersController < ApplicationController
         user = User.new(first_name: params[:first_name], last_name: params[:last_name], username: params[:username], password: params[:password]) 
         if user.save
             render json: user
-        else 
-            render json: {status: "error", code: 3000, message: user.errors.full_message}
+        # else 
+        #     render json: {status: "error", code: 3000, message: user.errors.full_message}
         end
     end
 

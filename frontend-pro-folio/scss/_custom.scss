@@ -11,7 +11,6 @@ $secondary-color: #cebc81;
 .top-bar {
     background-color: $primary-color;
    
-
 }
 
 
@@ -47,7 +46,7 @@ $secondary-color: #cebc81;
     list-style: none;
     float: left;
     padding: 10px 13px;
-    font-size: 27px;
+    font-size: 20px; //was 27 did not fit on my computer res
     cursor: pointer;
     color: white;
     &:hover{

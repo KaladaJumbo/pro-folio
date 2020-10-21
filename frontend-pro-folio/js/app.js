@@ -107,7 +107,7 @@ function handleSignUp(e) {
         body: JSON.stringify(userObj)
     }
 
-    fetch("http//localhost3000/users", meta)
+    fetch("http://localhost:3000/users", meta)
     .then(r => r.json())
     .then(data => {
         console.log(data)
