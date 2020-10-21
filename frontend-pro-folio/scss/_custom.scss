@@ -1,5 +1,6 @@
 $primary-color: #3d454f;
 $secondary-color: #cebc81;
+$font-color: whitesmoke;
 
 
 
@@ -35,7 +36,7 @@ $secondary-color: #cebc81;
         
 
         #pro {
-            color: whitesmoke;
+            color: $font-color;
         }
     }
 }
@@ -48,7 +49,7 @@ $secondary-color: #cebc81;
     padding: 10px 13px;
     font-size: 20px; //was 27 did not fit on my computer res
     cursor: pointer;
-    color: white;
+    color: $font-color;
     &:hover{
         color: $secondary-color;
     }
@@ -74,7 +75,7 @@ $secondary-color: #cebc81;
     overflow: hidden;
     float: left;
     padding: 10px 15px;
-    color:white;
+    color: $font-color;
     font-size: 13px;
     padding-left: 35px;
 }
@@ -94,7 +95,7 @@ $secondary-color: #cebc81;
       float: left;
       padding: 10px 15px;
       font-size: 13px;
-      color: white;
+      color: $font-color;
       cursor: pointer;
       &:hover{
           color: $secondary-color;
@@ -148,7 +149,7 @@ html {
     margin: auto auto;
 
     h4 {
-      color: white;
+      color: $font-color;
       margin-bottom: 1rem;
       font-weight: 600;
       text-transform: uppercase
@@ -196,6 +197,20 @@ html {
       border-color: $secondary-color;
     }
 
+  }
+
+  .body-container {
+    @include xy-grid-container;
+  }
+
+  #grid{
+    z-index: 2;
+    background-color: rgba($primary-color, .9);
+    width: min-content;
+    border-left: -70px;
+    color: whitesmoke;
+    box-sizing: content-box;
+    
   }
 
   

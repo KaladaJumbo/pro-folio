@@ -1,7 +1,8 @@
 $(document).foundation();
 
 /*************************************** GLOBALS *******************************************/ 
-
+//url stuff 
+const URL = "http://localhost:4000/users"
 //navbar
 const menuUl = document.querySelector(".menu").children
 const home = menuUl[0]
@@ -147,33 +148,29 @@ function handleSignUp(e) {
         body: JSON.stringify(userObj)
     }
 
-    fetch("http://localhost:3000/users", meta)
+    fetch(URL, meta)
     .then(r => r.json())
     .then(data => {
         console.log(data); //dont forget to delete me after use 
         sessionStorage.setItem("currentUser", data.username);
-        logUserIn();
+        completedLogin();
     })
-    .catch(error => {
-        console.log("failure")
-        failedSignup(error)
-    })
+    // .catch(error => {
+    //     console.log("failure")
+    //     failedSignup(error)
+    // })
 }
 
 function handleLogin(e) {
     
 }
 
-function logUserIn() {
-    //change welcome message in nav bar
-    welcomeMessage = document.querySelector(".welcome")
-    welcomeMessage.innerText = "hello, " + sessionStorage.getItem("currentUser")
-
+function completedLogin() {
     //remove form 
     form.innerHTML = ""
 
     // rename and relisten to buttons
-    topMenuButtonConfig()
+    miniBarConfig()
 }
 
 function failedSignup(params) {
@@ -183,16 +180,18 @@ function failedSignup(params) {
 function miniBarConfig() {
     let welcomeMessage = document.querySelector(".welcome")
     
-    if(!!sessionStorage.getItem("currentUser")){      //if currentuser exist return true
+    if(sessionStorage.getItem("currentUser")){      //if currentuser exist return true
         welcomeMessage.innerText = "Hello, " + sessionStorage.getItem("currentUser")
         minibar().innerHTML = `
         <li>Logout</li>
         <li>Profile Information</li>
         <li>Support</li>
         `
+        console.log("if");
         loggedInMiniBarListener();
     }
     else {
+        console.log("else")
         welcomeMessage.innerText = ""
         minibar().innerHTML = `
         <li>Client Login</li>
