@@ -140,7 +140,7 @@ html {
 .sign-in-form {
     padding: 1rem 1.5em;
     border-radius: .5rem;
-    background-color: #3d454f;
+    background-color: $primary-color;
     width: 20%;
     position: absolute;
     right: 0;
@@ -158,7 +158,7 @@ html {
   
     label {
       text-transform: uppercase;
-      color: #adadad;
+      color: $font-color;
       letter-spacing: 1px;
       font-weight: 600;
       margin-bottom: 1rem;
@@ -170,7 +170,8 @@ html {
     }
   
     input:focus {
-      opacity: .8;
+      opacity: .5;
+      background: $secondary-color;
     }
   }
   

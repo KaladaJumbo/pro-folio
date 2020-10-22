@@ -9,6 +9,7 @@ const home = menuUl[0]
 const skills = menuUl[1]
 const projects = menuUl[2]
 const contact = menuUl[3]
+let user = {}
 //minibar
 const minibar = () => document.querySelector(".top-list-right")
 
@@ -31,20 +32,30 @@ const mainContainer = document.querySelector("#cellwall")
 document.addEventListener("DOMContentLoaded", () => {
     miniBarConfig();
     addNavBarListeners();
+    loadUserInfo()
 })
 
 
+//navbar events
 function addNavBarListeners() {
-    //navbar
     home.addEventListener("click", () => {
-        // homePageConfig();
+        removeNewSkillButton()
+        homePageConfig();
     });
     skills.addEventListener("click", () => {
         let homePage = document.querySelector("#cellwall")
         homePage.innerHTML = ""
+        addSkillToBar()
+        handleSkillsButton()
     });
-    projects.addEventListener("click", () => {});
-    contact.addEventListener("click", () => {});
+    projects.addEventListener("click", () => {
+        removeNewSkillButton()
+        handleProjectsButton()
+    });
+    contact.addEventListener("click", () => {
+        removeNewSkillButton()
+        handleContactButton()
+    });
     
 }
 
@@ -65,19 +76,29 @@ function notLoggedInMiniBarListener() {
 
 function loggedInMiniBarListener() {
     let logout = document.querySelector(".top-list-right").children[0]
-    let newPage = document.querySelector(".top-list-right").children[1]
-    let save = document.querySelector(".top-list-right").children[2]
+    let editSkills = document.querySelector(".top-list-right").children[1]
+    let editProjects = document.querySelector(".top-list-right").children[2]
 
     logout.addEventListener("click", () => {
         userLogout()
     });
-    newPage.addEventListener("click", () => {
-        
+    editSkills.addEventListener("click", () => {
+        makeSkill()
     });
-    save.addEventListener("click", () => {
-        console.log("support button logged in")
-        //reporting changes to server
+    editProjects.addEventListener("click", () => {
+        projectsForm()
+    
     });
+}
+
+function loadUserInfo() {
+    if(sessionStorage.getItem("currentUser")) {
+        fetch(URL + "/" + sessionStorage.getItem("currentUser"))
+        .then(r => r.json())
+        .then(data => {
+            user = data
+        })
+    }
 }
 
 /*******************************************************************************************/ 
@@ -122,13 +143,14 @@ function handleLogin(e) {
         body: JSON.stringify(userObj)
     }
     showUrl = URL + "/" + uName
-    console.log(showUrl);
     fetch(showUrl, meta)
     .then(r => r.json())
     .then(data => {
-        console.log(data); //dont forget to delete me after use 
         sessionStorage.setItem("currentUser", data.username);
+        user = data
         completedLogin();
+        
+        
     })
     .catch(error => {
         failedFetch()
@@ -193,7 +215,7 @@ function handleSignUp(e) {
     fetch(URL, meta)
     .then(r => r.json())
     .then(data => {
-        console.log(data); //dont forget to delete me after use 
+        user = data
         sessionStorage.setItem("currentUser", data.username);
         completedLogin();
 
@@ -242,7 +264,7 @@ function miniBarConfig() {
         minibar().innerHTML = `
         <li>Logout</li>
         <li></li>
-        <li>Save Changes</li>
+        <li></li>
         `
         loggedInMiniBarListener();
         homePageConfig()
@@ -258,45 +280,7 @@ function miniBarConfig() {
     }
 }
 
-function makeSkill() {
-    mainContainer.innerHTML = ""
-    form.innerHTML = ""
-    if (formUp){
-        form.innerHTML = ""
-        formUp = false
-        return
-    }    
-    formUp = true
-    form.innerHTML = 
-    `
-        <form class="newSkill">
-            <div class="sign-in-form">
-                <h4 class="text-center">Add a Skill</h4>
-        
-                <label for="sign-in-form-username">Skill name</label>
-                <input type="text" class="sign-in-form-username" id="sign-in-form-firstname">
-
-                <label for="sign-in-form-username">Skill Description</label>
-                <textarea class="sign-in-form-username" id="sign-in-form-firstname">
-        
-                <button type="submit" class="sign-in-form-button">Create Page</button>
-            </div>
-        </form>
-    `
-    
-    let newPage = document.querySelector(".newSkill")
-    newPage.addEventListener("submit", (e) => {
-        e.preventDefault()
-        handleNewSkill(e)
-    })
-}
-
-function handleNewSkill(e){
-    
-    //handle the skill info
-
-    homePageConfig();
-}
+//****************************************************** HOME PAGE  *********************************************************************************/ 
 
 function homePageConfig() {
     form.innerHTML = ""
@@ -324,3 +308,151 @@ function homePageConfig() {
     `
 
 }
+//****************************************************************************************************/
+
+//********************************** SKILLS ****************************************/
+function addSkillToBar() {
+    minibar().innerHTML = `
+        <li>Logout</li>
+        <li>Add Skills</li>
+        <li></li>
+        `
+        loggedInMiniBarListener();
+       
+}
+
+function removeNewSkillButton () {
+    minibar().innerHTML = `
+    <li>Logout</li>
+    <li></li>
+    <li></li>
+    `
+    loggedInMiniBarListener();
+}
+
+// function skillsForm() {
+//     form.innerHTML = ""
+//     form.innerHTML = `
+
+//     `
+// }
+
+function handleSkillsButton() {
+    form.innerHTML = ""
+   
+    mainContainer.innerHTML = `
+    <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 firstRow">
+      <div class="cell auto cell-style">
+        
+      </div>
+      <div class="cell auto cell-style margins">cell</div>
+      <div class="cell auto cell-style margins">cell</div>
+    </div>
+
+    <br>
+    <br>
+        
+    <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 secondRow">
+      <div class="cell auto cell-style margins">cell</div>
+      <div class="cell auto cell-style margins">cell</div>
+    </div>
+    `
+
+
+}
+
+
+function makeSkill() {
+    mainContainer.innerHTML = ""
+    form.innerHTML = ""
+    if (formUp){
+        form.innerHTML = ""
+        formUp = false
+        handleSkillsButton()
+        return
+    }    
+    formUp = true
+    form.innerHTML = 
+    `
+        <form class="newSkill">
+            <div class="sign-in-form">
+                <h4 class="text-center">Add a Skill</h4>
+        
+                <label>Skill name</label>
+                <input type="text" class="sign-in-form-username" id="skill-name">
+
+                <label>Skill Description</label>
+                <input type="text" class="sign-in-form-username" id="skill-description" style="margin: 0px 0px 16px; height: 120px; width: 100%;" >
+                
+                <button type="submit" class="sign-in-form-button">Create Page</button>
+            </div>
+        </form>
+    `
+    
+    let newPage = document.querySelector(".newSkill")
+    newPage.addEventListener("submit", (e) => {
+        e.preventDefault()
+        fetchSkill(e)
+    })
+}
+
+function fetchSkill(e){
+    
+    //handle the skill info
+
+    homePageConfig();
+}
+
+
+//********************************************************************************************************/
+
+/****************************************** PROJECTS ******************************************************/
+
+function handleProjectsButton() {
+    form.innerHTML = ""
+
+    mainContainer.innerHTML = `
+    <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 firstRow">
+      <div class="cell auto cell-style">
+            
+      </div>
+      <div class="cell auto cell-style margins">cell</div>
+      <div class="cell auto cell-style margins">cell</div>
+    </div>
+
+    <br>
+    <br>
+        
+    <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 secondRow">
+      <div class="cell auto cell-style margins">cell</div>
+      <div class="cell auto cell-style margins">cell</div>
+    </div>
+    `
+}
+
+
+/************************************************************************************************************/
+/********************************************* CONTACTS *********************************************************/
+function handleContactButton() {
+    form.innerHTML = ""
+
+    mainContainer.innerHTML = `
+    <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 firstRow">
+      <div class="cell auto cell-style">
+
+      </div>
+      <div class="cell auto cell-style margins">cell</div>
+      <div class="cell auto cell-style margins">cell</div>
+    </div>
+
+    <br>
+    <br>
+        
+    <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 secondRow">
+      <div class="cell auto cell-style margins">cell</div>
+      <div class="cell auto cell-style margins">cell</div>
+    </div>
+    `
+}
+
+/*****************************************************************************************************************/
