@@ -3,6 +3,8 @@ $(document).foundation();
 /*************************************** GLOBALS ********************************************/ 
 //url stuff 
 const URL = "http://localhost:4000/users"
+const URLSKILLS = "http://localhost:4000/skills"
+
 //navbar
 const menuUl = document.querySelector(".menu").children
 const home = menuUl[0]
@@ -343,7 +345,7 @@ function handleSkillsButton() {
 
     mainContainer.innerHTML = `
     <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 firstRow">
-      <div class="cell auto cell-style">
+      <div class="cell auto cell-style shadow">
         <div class="skill-name">
             ${user.skills[0].name}
         </div>
@@ -358,7 +360,6 @@ function handleSkillsButton() {
       <div class="skill-name">
             ${user.skills[1].name}
         </div>
-        <br>
         <br>
         <div class="skill-description">
             ${user.skills[1].description}
@@ -470,18 +471,34 @@ function makeSkill(location) {
     let newPage = document.querySelector(".newSkill")
     newPage.addEventListener("submit", (e) => {
         e.preventDefault()
-        fetchSkill(e, location)
+        pushSkill(e, location)
     })
 }
 
-function fetchSkill(e, location){
+function pushSkill(e, location){
     
     skillName = e.target[0].value
     skillDescription = e.target[1].value
 
-    user.skills[location].name = skillName
-    user.skills[location].description = skillDescription
-    console.log(user);
+    console.log("in the push");
+
+    meta = {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: skillName,
+            description: skillDescription
+        })
+    }
+
+    fetch(URLSKILLS + "/" + user.skills[location].id, meta)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        user.skills[location] = data
+    })
 
     homePageConfig();
 }

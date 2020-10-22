@@ -205,8 +205,9 @@ html {
     background-color: $primary-color;
     color: $font-color;
     border-radius: 20px;
-    
-     
+    border-color: $secondary-color;
+    //border-style: groove;
+    //there should be a way to choose what border to show
   }
 
   .margins{

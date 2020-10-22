@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
     def index
         users = User.all 
-        render json: user.to_json({include: [:skills, :projects]})
+        render json: users.to_json({include: [:skills, :projects]})
     end
 
     def show
@@ -44,7 +44,7 @@ class UsersController < ApplicationController
     end
 
     def update
-        #handle project and skill update
+        # idk
     end
     
 end
