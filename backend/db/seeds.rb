@@ -7,6 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all 
-
-User.create(first_name: "adam", last_name: "adolfo", username: "adolfo1")
-User.create(first_name: "kalada", last_name: "william-jumbo", username: "jumbo1")
+Page.destroy_all
