@@ -23,14 +23,14 @@ class UsersController < ApplicationController
         
         if user && user.authenticate(params[:password])
 
-            render json: user
+            render json: user, :include => [:skills, :projects]
             
         end
 
     end
 
     def update
-        #needs to be able to update all pages here
+        #handle project and skill update
     end
     
 end

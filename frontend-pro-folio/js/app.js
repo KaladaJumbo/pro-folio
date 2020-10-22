@@ -66,16 +66,17 @@ function notLoggedInMiniBarListener() {
 function loggedInMiniBarListener() {
     let logout = document.querySelector(".top-list-right").children[0]
     let newPage = document.querySelector(".top-list-right").children[1]
-    let support = document.querySelector(".top-list-right").children[2]
+    let save = document.querySelector(".top-list-right").children[2]
 
     logout.addEventListener("click", () => {
         userLogout()
     });
     newPage.addEventListener("click", () => {
-        makePage();
+        
     });
-    support.addEventListener("click", () => {
+    save.addEventListener("click", () => {
         console.log("support button logged in")
+        //reporting changes to server
     });
 }
 
@@ -240,7 +241,7 @@ function miniBarConfig() {
         welcomeMessage.innerText = "Hello, " + sessionStorage.getItem("currentUser")
         minibar().innerHTML = `
         <li>Logout</li>
-        <li>Add a New Page</li>
+        <li></li>
         <li>Save Changes</li>
         `
         loggedInMiniBarListener();
@@ -257,7 +258,7 @@ function miniBarConfig() {
     }
 }
 
-function makePage() {
+function makeSkill() {
     mainContainer.innerHTML = ""
     form.innerHTML = ""
     if (formUp){
@@ -268,30 +269,32 @@ function makePage() {
     formUp = true
     form.innerHTML = 
     `
-        <form class="newPage">
+        <form class="newSkill">
             <div class="sign-in-form">
-                <h4 class="text-center">Add a Page</h4>
+                <h4 class="text-center">Add a Skill</h4>
         
-                <label for="sign-in-form-username">Page name</label>
+                <label for="sign-in-form-username">Skill name</label>
                 <input type="text" class="sign-in-form-username" id="sign-in-form-firstname">
+
+                <label for="sign-in-form-username">Skill Description</label>
+                <textarea class="sign-in-form-username" id="sign-in-form-firstname">
         
                 <button type="submit" class="sign-in-form-button">Create Page</button>
             </div>
         </form>
     `
     
-    let newPage = document.querySelector(".newPage")
+    let newPage = document.querySelector(".newSkill")
     newPage.addEventListener("submit", (e) => {
         e.preventDefault()
-        handleNewPage(e.target[0].value)
+        handleNewSkill(e)
     })
 }
 
-function handleNewPage(pageName){
-    let bar = document.querySelector("#top-bar-right-ul")
-    let li = document.createElement("li")
-    li.innerText = pageName
-    bar.appendChild(li)
+function handleNewSkill(e){
+    
+    //handle the skill info
+
     homePageConfig();
 }
 
