@@ -339,30 +339,108 @@ function removeNewSkillButton () {
 
 function handleSkillsButton() {
     form.innerHTML = ""
-   
+    
+
     mainContainer.innerHTML = `
     <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 firstRow">
       <div class="cell auto cell-style">
-        
+        <div class="skill-name">
+            ${user.skills[0].name}
+        </div>
+        <br>
+        <br>
+        <div class="skill-description">
+            ${user.skills[0].description}
+        </div>
+        <span class= "buttonIcon" id="b1"><i class="far fa-edit"></i></span>
+        </div>
+      <div class="cell auto cell-style margins">
+      <div class="skill-name">
+            ${user.skills[1].name}
+        </div>
+        <br>
+        <br>
+        <div class="skill-description">
+            ${user.skills[1].description}
+        </div>
+        <span class= "buttonIcon" id="b2"><i class="far fa-edit"></i></span>
+        </div>
+      <div class="cell auto cell-style margins">
+      <div class="skill-name">
+            ${user.skills[2].name}
+        </div>
+        <br>
+        <br>
+        <div class="skill-description">
+            ${user.skills[2].description}
+        </div>
+        <span class= "buttonIcon" id="b3"><i class="far fa-edit"></i></span>
       </div>
-      <div class="cell auto cell-style margins">cell</div>
-      <div class="cell auto cell-style margins">cell</div>
     </div>
 
     <br>
     <br>
         
     <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 secondRow">
-      <div class="cell auto cell-style margins">cell</div>
-      <div class="cell auto cell-style margins">cell</div>
+      <div class="cell auto cell-style margins">
+        <div class="skill-name">
+            ${user.skills[3].name}
+        </div>
+        <br>
+        <br>
+        <div class="skill-description">
+            ${user.skills[3].description}
+        </div>
+        <span class= "buttonIcon" id="b4"><i class="far fa-edit"></i></span>
+      </div>
+      <div class="cell auto cell-style margins">
+        <div class="skill-name">
+            ${user.skills[4].name}
+        </div>
+        <br>
+        <br>
+        <div class="skill-description">
+            ${user.skills[4].description}
+        </div>
+        <span class= "buttonIcon" id="b5"><i class="far fa-edit"></i></span>
+      </div>
+      <div class="cell auto cell-style margins">
+        <div class="skill-name">
+            ${user.skills[5].name}
+        </div>
+        <br>
+        <br>
+        <div class="skill-description">
+            ${user.skills[5].description}
+        </div>
+        <span class= "buttonIcon" id="b6"><i class="far fa-edit"></i></span>
+      </div>
     </div>
     `
+    document.querySelector("#b1").addEventListener("click", () => {
+        makeSkill(0)
+    })
+    document.querySelector("#b2").addEventListener("click", () => {
+        makeSkill(1)
+    })
+    document.querySelector("#b3").addEventListener("click", () => {
+        makeSkill(2)
+    })
+    document.querySelector("#b4").addEventListener("click", () => {
+        makeSkill(3)
+    })
+    document.querySelector("#b5").addEventListener("click", () => {
+        makeSkill(4)
+    })
+    document.querySelector("#b6").addEventListener("click", () => {
+        makeSkill(5)
+    })
 
 
 }
 
 
-function makeSkill() {
+function makeSkill(location) {
     mainContainer.innerHTML = ""
     form.innerHTML = ""
     if (formUp){
@@ -376,14 +454,14 @@ function makeSkill() {
     `
         <form class="newSkill">
             <div class="sign-in-form">
-                <h4 class="text-center">Add a Skill</h4>
+                <h4 class="text-center">Edit</h4>
         
                 <label>Skill name</label>
                 <input type="text" class="sign-in-form-username" id="skill-name">
 
                 <label>Skill Description</label>
                 <input type="text" class="sign-in-form-username" id="skill-description" style="margin: 0px 0px 16px; height: 120px; width: 100%;" >
-                
+
                 <button type="submit" class="sign-in-form-button">Create Page</button>
             </div>
         </form>
@@ -392,13 +470,18 @@ function makeSkill() {
     let newPage = document.querySelector(".newSkill")
     newPage.addEventListener("submit", (e) => {
         e.preventDefault()
-        fetchSkill(e)
+        fetchSkill(e, location)
     })
 }
 
-function fetchSkill(e){
+function fetchSkill(e, location){
     
-    //handle the skill info
+    skillName = e.target[0].value
+    skillDescription = e.target[1].value
+
+    user.skills[location].name = skillName
+    user.skills[location].description = skillDescription
+    console.log(user);
 
     homePageConfig();
 }

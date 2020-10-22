@@ -7,12 +7,27 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-
+User.destroy_all
 Project.destroy_all
-Project.create(name: "profolio", description: "professional programming portfolio", user_id: 2)
-Project.create(name: "filler", description: "fake stuff", user_id: 2)
-
 Skill.destroy_all
-Skill.create(name: "Ruby", description: "Programming language whatever", user_id: 2)
-Skill.create(name: "js", description: "Programming language whatever", user_id: 2)
-Skill.create(name: "rails", description: "Programming framework whatever", user_id: 2)
+
+
+new_user = User.create(first_name: "bob", last_name: "bobbin", username: "bob", password: "bob")
+
+Project.create(name: "profolio", description: "professional programming portfolio", user_id: new_user.id)
+Project.create(name: "filler", description: "fake stuff", user_id: new_user.id)
+Project.create(user_id: new_user.id)
+Project.create(user_id: new_user.id)
+Project.create(user_id: new_user.id)
+Project.create(user_id: new_user.id)
+
+
+
+Skill.create(name: "Ruby", description: "Programming language whatever", user_id: new_user.id)
+Skill.create(name: "js", description: "Programming language whatever", user_id: new_user.id)
+Skill.create(name: "rails", description: "Programming framework whatever", user_id: new_user.id)
+Skill.create(user_id: new_user.id)
+Skill.create(user_id: new_user.id)
+Skill.create(user_id: new_user.id)
+
+

@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
     def index
         users = User.all 
-        render json: users  
+        render json: user.to_json({include: [:skills, :projects]})
     end
 
     def show
@@ -13,10 +13,22 @@ class UsersController < ApplicationController
     end
 
     def create
-        user = User.new(first_name: params[:first_name], last_name: params[:last_name], username: params[:username], password: params[:password]) 
+
+        user = User.new(first_name: params[:first_name], last_name: params[:last_name], username: params[:username], password: params[:password])
+
         if user.save
-            render json: user
+
+            6.times do 
+
+                skill = Skill.create(name: "edit me", description: "edit me", user_id: user.id)
+                project = Project.create(name: "edit me", description: "edit me", user_id: user.id)
+
+            end 
+
+            render json: user.to_json({include: [:skills, :projects]})
+
         end
+
     end
 
     def login
