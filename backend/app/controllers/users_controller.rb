@@ -28,6 +28,10 @@ class UsersController < ApplicationController
         end
 
     end
+
+    def update
+        #needs to be able to update all pages here
+    end
     
 end
 
