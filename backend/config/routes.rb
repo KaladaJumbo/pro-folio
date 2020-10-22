@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :pages
   resources :users
   post "users/:username", to: "users#login"
   

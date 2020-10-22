@@ -283,20 +283,19 @@ function makePage() {
     let newPage = document.querySelector(".newPage")
     newPage.addEventListener("submit", (e) => {
         e.preventDefault()
-        handleNewPage(e)
+        handleNewPage(e.target[0].value)
     })
 }
 
-function handleNewPage(e){
-    let pageName = e.target[0].value
+function handleNewPage(pageName){
     let bar = document.querySelector("#top-bar-right-ul")
     let li = document.createElement("li")
     li.innerText = pageName
     bar.appendChild(li)
-    form.innerHTML = ""
+    homePageConfig();
 }
 
-function homePageConfig(params) {
+function homePageConfig() {
     form.innerHTML = ""
 
     mainContainer.innerHTML = `
