@@ -30,8 +30,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function addNavBarListeners() {
     //navbar
-    home.addEventListener("click", () => {});
-    skills.addEventListener("click", () => {});
+    home.addEventListener("click", () => {
+        homePageConfig();
+    });
+    skills.addEventListener("click", () => {
+        let homePage = document.querySelector("#cellwall")
+        homePage.innerHTML = ""
+    });
     projects.addEventListener("click", () => {});
     contact.addEventListener("click", () => {});
     
@@ -70,6 +75,8 @@ function loggedInMiniBarListener() {
 
 /*******************************************************************************************/ 
 
+/*************************************** login *******************************************/ 
+
 function userLogin() {
     form.innerHTML = ""
     form.innerHTML = `
@@ -79,7 +86,7 @@ function userLogin() {
        <label for="sign-in-form-username">Username</label>
        <input type="text" class="sign-in-form-username" id="sign-in-form-username">
        <label for="sign-in-form-password">Password</label>
-       <input type="text" class="sign-in-form-password" id="sign-in-form-password">
+       <input type="password" class="sign-in-form-password" id="sign-in-form-password">
        <button type="submit" class="sign-in-form-button">Sign In</button>
      </div>
    </form>
@@ -90,6 +97,39 @@ function userLogin() {
         handleLogin(e)
     })
 }
+
+function handleLogin(e) {
+    let uName = e.target[0].value
+    let password = e.target[1].value
+    
+    let userObj = {
+        username: uName,
+        password: password
+    }
+
+    let meta = {
+        method: "POST",
+        headers: {"Content-Type":"application/json"}, 
+        body: JSON.stringify(userObj)
+    }
+    showUrl = URL + "/" + uName
+    console.log(showUrl);
+    fetch(showUrl, meta)
+    .then(r => r.json())
+    .then(data => {
+        console.log(data); //dont forget to delete me after use 
+        sessionStorage.setItem("currentUser", data.username);
+        completedLogin();
+    })
+    .catch(error => {
+        failedFetch()
+    })
+}
+
+/*******************************************************************************************/ 
+
+
+/************************************** sign up ***********************************************/ 
 
 function signUp() {
     form.innerHTML = ""
@@ -108,7 +148,7 @@ function signUp() {
        <input type="text" class="sign-in-form-username" id="sign-in-form-username">
 
        <label for="sign-in-form-password">Password</label>
-       <input type="text" class="sign-in-form-password" id="sign-in-form-password">
+       <input type="password" class="sign-in-form-password" id="sign-in-form-password">
        <button type="submit" class="sign-in-form-button">Create Account</button>
      </div>
    </form>
@@ -120,14 +160,6 @@ function signUp() {
     })
 }
 
-function userLogout() {
-    sessionStorage.removeItem("currentUser")
-    window.location.reload();
-}
-
-function userInfo() {
-    
-}
 
 function handleSignUp(e) {
     let fName = e.target[0].value
@@ -154,16 +186,33 @@ function handleSignUp(e) {
         console.log(data); //dont forget to delete me after use 
         sessionStorage.setItem("currentUser", data.username);
         completedLogin();
+
     })
-    // .catch(error => {
-    //     console.log("failure")
-    //     failedSignup(error)
-    // })
+    .catch(error => {
+        failedFetch()
+    })
 }
 
-function handleLogin(e) {
+
+/*******************************************************************************************/ 
+
+
+/*************************************** after login or sign-up *******************************************/ 
+
+function userLogout() {
+    sessionStorage.removeItem("currentUser")
+    window.location.reload();
+}
+
+function userInfo() {
     
 }
+
+
+function failedFetch() {
+    console.log("failure")
+}
+
 
 function completedLogin() {
     //remove form 
@@ -171,11 +220,9 @@ function completedLogin() {
 
     // rename and relisten to buttons
     miniBarConfig()
+    
 }
 
-function failedSignup(params) {
-    //handle what happens if database rejects you
-}
 
 function miniBarConfig() {
     let welcomeMessage = document.querySelector(".welcome")
@@ -187,11 +234,10 @@ function miniBarConfig() {
         <li>Profile Information</li>
         <li>Support</li>
         `
-        console.log("if");
         loggedInMiniBarListener();
+        homePageConfig()
     }
     else {
-        console.log("else")
         welcomeMessage.innerText = ""
         minibar().innerHTML = `
         <li>Client Login</li>
@@ -200,6 +246,34 @@ function miniBarConfig() {
         `
         notLoggedInMiniBarListener();
     }
+}
+
+function homePageConfig(params) {
+    let homePage = document.querySelector("#cellwall")
+    form.innerHTML = ""
+
+    homePage.innerHTML = `
+    <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3">
+      <div class="cell auto cell-style">
+        <div class="margin-items" id="profile-pic">
+          <div class="card pic">
+            <img src="https://www.likemind.media/wp-content/uploads/2017/06/Profile-Photo.png">
+          </div>
+        </div>
+      </div>
+      <div class="cell auto cell-style margins">cell</div>
+      <div class="cell auto cell-style margins">cell</div>
+    </div>
+
+    <br>
+    <br>
+        
+    <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3">
+      <div class="cell auto cell-style margins">cell</div>
+      <div class="cell auto cell-style margins">cell</div>
+    </div>
+    `
+
 }
 
 

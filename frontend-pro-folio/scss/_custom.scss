@@ -183,8 +183,8 @@ html {
   
   .sign-in-form-button {
     border-radius: 30px;
-    border: 1px solid #fff;
-    color: #fff;
+    border: 1px solid $font-color;
+    color: $font-color;
     background-color: transparent;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -199,22 +199,41 @@ html {
 
   }
 
-  .body-container {
-    @include xy-grid-container;
+  .cell-style{
+    z-index: 2;
+    background-color: rgba($primary-color, .6);
+    color: $font-color;
+    border-radius: 20px;
+    
+     
   }
 
-  #grid{
-    z-index: 2;
-    background-color: rgba($primary-color, .9);
-    width: min-content;
-    border-left: -70px;
-    color: whitesmoke;
-    box-sizing: content-box;
+  .margins{
+    margin-left: 15px;
     
   }
 
-  
+  .margin-items{
+      
+    padding-top: 12px;
+        
+  }
 
-// .solid-border-left{
-//     border-left: 0.25rem solid gray;
-// }
+  #cellwall{
+      padding-right: 100px;
+      padding-left: 100px;
+      overflow: hidden;
+  }
+
+#profile-pic{
+  width: 60%;
+  max-width: 200px;
+  margin-right: auto;
+  margin-left: auto;
+
+  .pic{
+    max-height: 100%;
+    max-width: 100%;
+  }
+}
+
