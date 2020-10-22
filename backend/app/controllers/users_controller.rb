@@ -7,7 +7,9 @@ class UsersController < ApplicationController
     end
 
     def show
-        
+        user = User.find_by(username: params[:id])
+        render json: user.to_json({include: [:skills, :projects]})
+            
     end
 
     def create
@@ -22,8 +24,8 @@ class UsersController < ApplicationController
         user = User.find_by(username: params[:username])
         
         if user && user.authenticate(params[:password])
-
-            render json: user, :include => [:skills, :projects]
+        
+            render json: user.to_json({include: [:skills, :projects]})
             
         end
 

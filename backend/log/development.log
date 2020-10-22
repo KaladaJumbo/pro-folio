@@ -2937,3 +2937,825 @@ Migrating to CreateProjects (20201022140034)
   [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
   [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-10-22 10:32:40 -0400
+  [1m[35m (17.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/adamadolfo/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/adamadolfo/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 43.3ms | Allocations: 478)
+Completed 200 OK in 134ms (Views: 89.3ms | ActiveRecord: 0.0ms | Allocations: 2616)
+
+
+Started GET "/" for ::1 at 2020-10-22 10:32:40 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/adamadolfo/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/adamadolfo/.rvm/gems/ruby-2.6.1/gems/railties-6.0.3.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 3.4ms | Allocations: 195)
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.0ms | Allocations: 890)
+
+
+Started GET "/favicon.ico" for ::1 at 2020-10-22 10:32:40 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (6.0.3.4) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.3.4) lib/rails/rack/logger.rb:37:in `call_app'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.3.4) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.3.4) lib/rails/rack/logger.rb:26:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.3.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.3.4) lib/action_dispatch/middleware/host_authorization.rb:82:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+rack-cors (1.1.1) lib/rack/cors.rb:100:in `call'
+railties (6.0.3.4) lib/rails/engine.rb:527:in `call'
+puma (4.3.6) lib/puma/configuration.rb:228:in `call'
+puma (4.3.6) lib/puma/server.rb:713:in `handle_request'
+puma (4.3.6) lib/puma/server.rb:472:in `process_client'
+puma (4.3.6) lib/puma/server.rb:328:in `block in run'
+puma (4.3.6) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-10-22 10:32:47 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+Completed 200 OK in 74ms (Views: 15.0ms | ActiveRecord: 2.0ms | Allocations: 9132)
+
+
+Started POST "/users/tom" for ::1 at 2020-10-22 10:33:50 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"tom", "password"=>"[FILTERED]", "user"=>{"username"=>"tom"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 1]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 392ms (Views: 142.4ms | ActiveRecord: 4.2ms | Allocations: 14625)
+
+
+Started POST "/users" for ::1 at 2020-10-22 10:53:05 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"Adam", "last_name"=>"Adolfo", "username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"first_name"=>"Adam", "last_name"=>"Adolfo", "username"=>"adamadolfo"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[36mUser Create (2.4ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Adam"], ["last_name", "Adolfo"], ["created_at", "2020-10-22 14:53:05.872240"], ["updated_at", "2020-10-22 14:53:05.872240"], ["username", "adamadolfo"], ["password_digest", "$2a$12$PUnhbY6rk4nYFkcELF7E/.iicWPNFyNULX9zkRwmxkgYVuYPWmG4."]]
+  ↳ app/controllers/users_controller.rb:15:in `create'
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:15:in `create'
+Completed 200 OK in 226ms (Views: 0.3ms | ActiveRecord: 9.7ms | Allocations: 4900)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Create (1.1ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "profolio"], ["description", "professional programming portfolio"], ["user_id", 2], ["created_at", "2020-10-22 14:58:55.624769"], ["updated_at", "2020-10-22 14:58:55.624769"]]
+  [1m[35m (5.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Create (1.0ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "filler"], ["description", "fake stuff"], ["user_id", 2], ["created_at", "2020-10-22 14:58:55.636630"], ["updated_at", "2020-10-22 14:58:55.636630"]]
+  [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (1.1ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 1]]
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (1.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 2]]
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Create (1.4ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "profolio"], ["description", "professional programming portfolio"], ["user_id", 2], ["created_at", "2020-10-22 14:59:21.782780"], ["updated_at", "2020-10-22 14:59:21.782780"]]
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mProject Create (1.0ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "filler"], ["description", "fake stuff"], ["user_id", 2], ["created_at", "2020-10-22 14:59:21.797197"], ["updated_at", "2020-10-22 14:59:21.797197"]]
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSkill Create (1.1ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ruby"], ["description", "Programming language whatever"], ["user_id", 2], ["created_at", "2020-10-22 14:59:21.819194"], ["updated_at", "2020-10-22 14:59:21.819194"]]
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSkill Create (1.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "js"], ["description", "Programming language whatever"], ["user_id", 2], ["created_at", "2020-10-22 14:59:21.831176"], ["updated_at", "2020-10-22 14:59:21.831176"]]
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[36mSkill Create (1.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "rails"], ["description", "Programming framework whatever"], ["user_id", 2], ["created_at", "2020-10-22 14:59:21.843462"], ["updated_at", "2020-10-22 14:59:21.843462"]]
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC LIMIT ? OFFSET ?[0m  [["LIMIT", 1], ["OFFSET", 1]]
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 11]]
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:11:48 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 244ms (Views: 20.4ms | ActiveRecord: 2.0ms | Allocations: 18190)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:13:20 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 212ms (Views: 2.9ms | ActiveRecord: 0.7ms | Allocations: 3421)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 11:13:55 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"adamadolfo"}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 29)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 11:14:03 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"adamadolfo"}
+Completed 204 No Content in 0ms (ActiveRecord: 0.0ms | Allocations: 25)
+
+
+Started GET "/users" for ::1 at 2020-10-22 11:14:07 -0400
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:6:in `index'
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 1144)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:16:17 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 215ms (Views: 2.9ms | ActiveRecord: 0.7ms | Allocations: 3421)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:17:04 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 11]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 500 Internal Server Error in 539340ms (ActiveRecord: 2.7ms | Allocations: 96752)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/users_controller.rb:26:in `login'
+Started GET "/users" for ::1 at 2020-10-22 11:26:03 -0400
+Started GET "/users" for ::1 at 2020-10-22 11:26:04 -0400
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:26:04 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#index as HTML
+Processing by UsersController#index as HTML
+Processing by UsersController#login as */*
+  [1m[36mUser Load (4.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  ↳ app/controllers/users_controller.rb:6:in `index'
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+Completed 200 OK in 180ms (Views: 166.2ms | ActiveRecord: 7.7ms | Allocations: 1568397)
+
+
+Completed 200 OK in 189ms (Views: 182.3ms | ActiveRecord: 1.5ms | Allocations: 1641780)
+
+
+  ↳ app/controllers/users_controller.rb:22:in `login'
+Completed 500 Internal Server Error in 3067ms (ActiveRecord: 7.1ms | Allocations: 1638505)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `login'
+app/controllers/users_controller.rb:26:in `login'
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:26:50 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 237ms (Views: 0.1ms | ActiveRecord: 2.4ms | Allocations: 14599)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:28:58 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 11]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 25157ms (Views: 0.1ms | ActiveRecord: 3.2ms | Allocations: 48074)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:29:24 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ? LIMIT ?[0m  [["user_id", 2], ["LIMIT", 11]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 25870ms (Views: 0.1ms | ActiveRecord: 3.9ms | Allocations: 20451)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:31:32 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 233ms (Views: 0.1ms | ActiveRecord: 2.7ms | Allocations: 11680)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:31:33 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 223ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 2070)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:31:41 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 209ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 2050)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:31:50 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 216ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 2053)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:31:57 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 216ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 2050)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:33:47 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:25:in `login'
+Completed 200 OK in 215ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 2051)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:35:39 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 14180ms (Views: 0.1ms | ActiveRecord: 2.8ms | Allocations: 87469)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:38:00 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 19963ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 4118)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:39:01 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 3790ms (Views: 0.1ms | ActiveRecord: 0.5ms | Allocations: 4119)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:40:28 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 20401ms (Views: 0.2ms | ActiveRecord: 5.4ms | Allocations: 20745)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:44:13 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 249ms (Views: 0.1ms | ActiveRecord: 4.1ms | Allocations: 17987)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:50:57 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 217ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 3203)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:55:02 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 240ms (Views: 0.1ms | ActiveRecord: 4.5ms | Allocations: 18021)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:57:16 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 213ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 3142)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 11:58:02 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `login'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:26:in `login'
+Completed 200 OK in 218ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 3142)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 12:06:40 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `login'
+Completed 204 No Content in 227ms (ActiveRecord: 0.3ms | Allocations: 4893)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 12:06:44 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `login'
+Completed 204 No Content in 211ms (ActiveRecord: 0.3ms | Allocations: 600)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 12:07:16 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `login'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:28:in `login'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:28:in `login'
+Completed 200 OK in 237ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 14237)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:08:00 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 11ms (Views: 0.1ms | ActiveRecord: 2.0ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:08:04 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:18:08 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 3168)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:18:15 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 3110)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 12:18:25 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `login'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:28:in `login'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:28:in `login'
+Completed 200 OK in 214ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 3142)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:21:46 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:29:33 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.7ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 3168)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:29:38 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 3110)
+
+
+Started POST "/users/adamadolfo" for ::1 at 2020-10-22 12:29:50 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"adamadolfo", "password"=>"[FILTERED]", "user"=>{"username"=>"adamadolfo"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `login'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:28:in `login'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:28:in `login'
+Completed 200 OK in 223ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 3145)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:30:29 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:30:44 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 1.4ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:30:50 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:33:39 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.8ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:39:50 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.1ms | Allocations: 3168)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:41:41 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:41:59 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (1.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 9ms (Views: 0.1ms | ActiveRecord: 1.9ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:42:25 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:44:00 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 1.5ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:45:51 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:47:37 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 3113)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:48:07 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:49:02 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:54:15 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 0.9ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:54:32 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 78ms (Views: 0.1ms | ActiveRecord: 4.5ms | Allocations: 20144)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:54:53 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 3113)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:57:37 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:58:35 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 4ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:59:17 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 3110)
+
+
+Started GET "/users/adamadolfo" for ::1 at 2020-10-22 12:59:28 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"adamadolfo"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "adamadolfo"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 3110)
+
+

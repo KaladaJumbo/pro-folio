@@ -6,5 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.destroy_all 
-Page.destroy_all
+
+
+Project.destroy_all
+Project.create(name: "profolio", description: "professional programming portfolio", user_id: 2)
+Project.create(name: "filler", description: "fake stuff", user_id: 2)
+
+Skill.destroy_all
+Skill.create(name: "Ruby", description: "Programming language whatever", user_id: 2)
+Skill.create(name: "js", description: "Programming language whatever", user_id: 2)
+Skill.create(name: "rails", description: "Programming framework whatever", user_id: 2)
