@@ -334,7 +334,7 @@ function homePageConfig() {
 function addSkillToBar() {
     minibar().innerHTML = `
         <li>Logout</li>
-        <li>Add Skills</li>
+        <li></li>
         <li></li>
         `
         loggedInMiniBarListener();
@@ -367,8 +367,6 @@ function handleSkillsButton() {
         <div class="skill-name">
             ${user.skills[0].name}
         </div>
-        <br>
-        <br>
         <div class="skill-description">
             ${user.skills[0].description}
         </div>
@@ -378,7 +376,6 @@ function handleSkillsButton() {
       <div class="skill-name">
             ${user.skills[1].name}
         </div>
-        <br>
         <div class="skill-description">
             ${user.skills[1].description}
         </div>
@@ -388,8 +385,6 @@ function handleSkillsButton() {
       <div class="skill-name">
             ${user.skills[2].name}
         </div>
-        <br>
-        <br>
         <div class="skill-description">
             ${user.skills[2].description}
         </div>
@@ -405,8 +400,6 @@ function handleSkillsButton() {
         <div class="skill-name">
             ${user.skills[3].name}
         </div>
-        <br>
-        <br>
         <div class="skill-description">
             ${user.skills[3].description}
         </div>
@@ -416,8 +409,6 @@ function handleSkillsButton() {
         <div class="skill-name">
             ${user.skills[4].name}
         </div>
-        <br>
-        <br>
         <div class="skill-description">
             ${user.skills[4].description}
         </div>
@@ -427,8 +418,6 @@ function handleSkillsButton() {
         <div class="skill-name">
             ${user.skills[5].name}
         </div>
-        <br>
-        <br>
         <div class="skill-description">
             ${user.skills[5].description}
         </div>
@@ -473,7 +462,7 @@ function makeSkill(location) {
     `
         <form class="newSkill">
             <div class="sign-in-form">
-                <h4 class="text-center">Edit</h4>
+                <h4 class="text-center">Edit Skill</h4>
         
                 <label>Skill name</label>
                 <input type="text" class="sign-in-form-username" id="skill-name">
@@ -481,7 +470,7 @@ function makeSkill(location) {
                 <label>Skill Description</label>
                 <input type="text" class="sign-in-form-username" id="skill-description" style="margin: 0px 0px 16px; height: 120px; width: 100%;" >
 
-                <button type="submit" class="sign-in-form-button">Create Page</button>
+                <button type="submit" class="sign-in-form-button">Confirm changes</button>
             </div>
         </form>
     `
@@ -527,28 +516,13 @@ function pushSkill(e, location){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /****************************************** PROJECTS ******************************************************/
 
 function addProjectToBar() {
     minibar().innerHTML = `
         <li>Logout</li>
         <li></li>
-        <li>Add Project</li>
+        <li></li>
         `
         loggedInMiniBarListener();
        
@@ -574,8 +548,6 @@ function handleProjectsButton() {
         <div class="skill-name">
             ${user.projects[0].name}
         </div>
-        <br>
-        <br>
         <div class="skill-description">
             ${user.projects[0].description}
         </div>
@@ -585,7 +557,6 @@ function handleProjectsButton() {
       <div class="skill-name">
             ${user.projects[1].name}
         </div>
-        <br>
         <div class="skill-description">
             ${user.projects[1].description}
         </div>
@@ -595,8 +566,6 @@ function handleProjectsButton() {
       <div class="skill-name">
             ${user.projects[2].name}
         </div>
-        <br>
-        <br>
         <div class="skill-description">
             ${user.projects[2].description}
         </div>
@@ -612,8 +581,6 @@ function handleProjectsButton() {
         <div class="skill-name">
             ${user.projects[3].name}
         </div>
-        <br>
-        <br>
         <div class="skill-description">
             ${user.projects[3].description}
         </div>
@@ -623,8 +590,6 @@ function handleProjectsButton() {
         <div class="skill-name">
             ${user.projects[4].name}
         </div>
-        <br>
-        <br>
         <div class="skill-description">
             ${user.projects[4].description}
         </div>
@@ -634,8 +599,6 @@ function handleProjectsButton() {
         <div class="skill-name">
             ${user.projects[5].name}
         </div>
-        <br>
-        <br>
         <div class="skill-description">
             ${user.projects[5].description}
         </div>
@@ -680,15 +643,15 @@ function makeProject(location) {
     `
         <form class="newProject">
             <div class="sign-in-form">
-                <h4 class="text-center">Edit</h4>
+                <h4 class="text-center">Edit Project</h4>
         
-                <label>Skill name</label>
+                <label>Project name</label>
                 <input type="text" class="sign-in-form-username" id="skill-name">
 
-                <label>Skill Description</label>
+                <label>Project Description</label>
                 <input type="text" class="sign-in-form-username" id="skill-description" style="margin: 0px 0px 16px; height: 120px; width: 100%;" >
 
-                <button type="submit" class="sign-in-form-button">Create Page</button>
+                <button type="submit" class="sign-in-form-button">Confirm changes</button>
             </div>
         </form>
     `
