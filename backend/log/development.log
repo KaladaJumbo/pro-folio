@@ -3759,3 +3759,1517 @@ Processing by UsersController#show as */*
 Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 3110)
 
 
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 3]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.2ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 4]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bob"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "bob"], ["last_name", "bobbin"], ["created_at", "2020-10-22 19:03:51.035225"], ["updated_at", "2020-10-22 19:03:51.035225"], ["username", "bob"], ["password_digest", "$2a$12$ksDVD4OO8/RJIMBljS3WbOHcmiCnjMpm0lWxrLo4mCO4zQgyvog8m"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "profolio"], ["description", "professional programming portfolio"], ["user_id", 3], ["created_at", "2020-10-22 19:03:51.053678"], ["updated_at", "2020-10-22 19:03:51.053678"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "filler"], ["description", "fake stuff"], ["user_id", 3], ["created_at", "2020-10-22 19:03:51.058334"], ["updated_at", "2020-10-22 19:03:51.058334"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSkill Load (0.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.3ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.2ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 2]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.2ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ruby"], ["description", "Programming language whatever"], ["user_id", 3], ["created_at", "2020-10-22 19:03:51.082463"], ["updated_at", "2020-10-22 19:03:51.082463"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "js"], ["description", "Programming language whatever"], ["user_id", 3], ["created_at", "2020-10-22 19:03:51.087122"], ["updated_at", "2020-10-22 19:03:51.087122"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "rails"], ["description", "Programming framework whatever"], ["user_id", 3], ["created_at", "2020-10-22 19:03:51.091711"], ["updated_at", "2020-10-22 19:03:51.091711"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 3]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 5]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 6]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bob"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "bob"], ["last_name", "bobbin"], ["created_at", "2020-10-22 19:04:09.099672"], ["updated_at", "2020-10-22 19:04:09.099672"], ["username", "bob"], ["password_digest", "$2a$12$G.c9yYbsVdkeP7Mrj/lOPO9VsqFQmNIz1IOVEybFqy1f0.vYzf9AC"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "profolio"], ["description", "professional programming portfolio"], ["user_id", 4], ["created_at", "2020-10-22 19:04:09.118472"], ["updated_at", "2020-10-22 19:04:09.118472"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "filler"], ["description", "fake stuff"], ["user_id", 4], ["created_at", "2020-10-22 19:04:09.123889"], ["updated_at", "2020-10-22 19:04:09.123889"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.3ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 4]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.3ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 5]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.3ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 6]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ruby"], ["description", "Programming language whatever"], ["user_id", 4], ["created_at", "2020-10-22 19:04:09.145097"], ["updated_at", "2020-10-22 19:04:09.145097"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "js"], ["description", "Programming language whatever"], ["user_id", 4], ["created_at", "2020-10-22 19:04:09.150376"], ["updated_at", "2020-10-22 19:04:09.150376"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.2ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "rails"], ["description", "Programming framework whatever"], ["user_id", 4], ["created_at", "2020-10-22 19:04:09.155162"], ["updated_at", "2020-10-22 19:04:09.155162"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 4]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 7]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 8]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSkill Load (0.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.3ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 7]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.3ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 8]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.3ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 9]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bob"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "bob"], ["last_name", "bobbin"], ["created_at", "2020-10-22 19:24:53.294557"], ["updated_at", "2020-10-22 19:24:53.294557"], ["username", "bob"], ["password_digest", "$2a$12$NP905aADHSZzCf0XHiin5udzWVppaQBgEUDy8N1oXUHMfF3IQNoMu"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "profolio"], ["description", "professional programming portfolio"], ["user_id", 5], ["created_at", "2020-10-22 19:24:53.305553"], ["updated_at", "2020-10-22 19:24:53.305553"]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "filler"], ["description", "fake stuff"], ["user_id", 5], ["created_at", "2020-10-22 19:24:53.311533"], ["updated_at", "2020-10-22 19:24:53.311533"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 5], ["created_at", "2020-10-22 19:24:53.316584"], ["updated_at", "2020-10-22 19:24:53.316584"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 5], ["created_at", "2020-10-22 19:24:53.321476"], ["updated_at", "2020-10-22 19:24:53.321476"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 5], ["created_at", "2020-10-22 19:24:53.329411"], ["updated_at", "2020-10-22 19:24:53.329411"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ruby"], ["description", "Programming language whatever"], ["user_id", 5], ["created_at", "2020-10-22 19:24:53.335026"], ["updated_at", "2020-10-22 19:24:53.335026"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "js"], ["description", "Programming language whatever"], ["user_id", 5], ["created_at", "2020-10-22 19:24:53.339736"], ["updated_at", "2020-10-22 19:24:53.339736"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.4ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "rails"], ["description", "Programming framework whatever"], ["user_id", 5], ["created_at", "2020-10-22 19:24:53.344475"], ["updated_at", "2020-10-22 19:24:53.344475"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 5], ["created_at", "2020-10-22 19:24:53.349072"], ["updated_at", "2020-10-22 19:24:53.349072"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.2ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 5], ["created_at", "2020-10-22 19:24:53.353763"], ["updated_at", "2020-10-22 19:24:53.353763"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 5]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (0.2ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 6]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 9]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.2ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 10]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 11]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.4ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 12]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.2ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 13]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 14]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.4ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 15]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 16]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.2ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 17]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.3ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 18]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.3ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 10]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.3ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 11]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.2ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 12]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.3ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 13]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.2ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 14]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.3ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 15]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.2ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 16]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.3ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 17]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.2ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 18]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.3ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 19]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bob"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "bob"], ["last_name", "bobbin"], ["created_at", "2020-10-22 19:44:27.708789"], ["updated_at", "2020-10-22 19:44:27.708789"], ["username", "bob"], ["password_digest", "$2a$12$TnHGiCYZSEyh3LsqWg.BTeuCwJSBLovwcTEdoYtdGwtqfkG5QHYUK"]]
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "profolio"], ["description", "professional programming portfolio"], ["user_id", 7], ["created_at", "2020-10-22 19:44:27.721036"], ["updated_at", "2020-10-22 19:44:27.721036"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mProject Create (0.4ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "filler"], ["description", "fake stuff"], ["user_id", 7], ["created_at", "2020-10-22 19:44:27.726605"], ["updated_at", "2020-10-22 19:44:27.726605"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 7], ["created_at", "2020-10-22 19:44:27.732075"], ["updated_at", "2020-10-22 19:44:27.732075"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 7], ["created_at", "2020-10-22 19:44:27.737242"], ["updated_at", "2020-10-22 19:44:27.737242"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 7], ["created_at", "2020-10-22 19:44:27.754150"], ["updated_at", "2020-10-22 19:44:27.754150"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mProject Create (0.3ms)[0m  [1m[32mINSERT INTO "projects" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 7], ["created_at", "2020-10-22 19:44:27.759842"], ["updated_at", "2020-10-22 19:44:27.759842"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ruby"], ["description", "Programming language whatever"], ["user_id", 7], ["created_at", "2020-10-22 19:44:27.765627"], ["updated_at", "2020-10-22 19:44:27.765627"]]
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "js"], ["description", "Programming language whatever"], ["user_id", 7], ["created_at", "2020-10-22 19:44:27.771231"], ["updated_at", "2020-10-22 19:44:27.771231"]]
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "rails"], ["description", "Programming framework whatever"], ["user_id", 7], ["created_at", "2020-10-22 19:44:27.776280"], ["updated_at", "2020-10-22 19:44:27.776280"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 7], ["created_at", "2020-10-22 19:44:27.781411"], ["updated_at", "2020-10-22 19:44:27.781411"]]
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 7], ["created_at", "2020-10-22 19:44:27.786508"], ["updated_at", "2020-10-22 19:44:27.786508"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 7], ["created_at", "2020-10-22 19:44:27.792125"], ["updated_at", "2020-10-22 19:44:27.792125"]]
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/users/bob" for ::1 at 2020-10-23 03:36:56 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"bob", "password"=>"[FILTERED]", "user"=>{"username"=>"bob"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36:in `login'
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:40:in `login'
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:40:in `login'
+Completed 200 OK in 279ms (Views: 0.1ms | ActiveRecord: 4.0ms | Allocations: 21930)
+
+
+Started GET "/users/bob" for ::1 at 2020-10-23 03:54:22 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"bob"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 27ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 20136)
+
+
+Started PATCH "/projects/21" for ::1 at 2020-10-23 03:54:53 -0400
+Processing by ProjectsController#update as */*
+  Parameters: {"name"=>"project 1", "description"=>"project stuff", "id"=>"21", "project"=>{"name"=>"project 1", "description"=>"project stuff"}}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:12:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mProject Update (0.5ms)[0m  [1m[33mUPDATE "projects" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "projects"."id" = ?[0m  [["name", "project 1"], ["description", "project stuff"], ["updated_at", "2020-10-23 07:54:53.058984"], ["id", 21]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 4968)
+
+
+Started POST "/users/bob" for ::1 at 2020-10-23 03:55:11 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"bob", "password"=>"[FILTERED]", "user"=>{"username"=>"bob"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36:in `login'
+  [1m[36mSkill Load (0.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:40:in `login'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:40:in `login'
+Completed 200 OK in 264ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 4173)
+
+
+Started PATCH "/projects/23" for ::1 at 2020-10-23 03:55:33 -0400
+Processing by ProjectsController#update as */*
+  Parameters: {"name"=>"naw", "description"=>"naw", "id"=>"23", "project"=>{"name"=>"naw", "description"=>"naw"}}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:12:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mProject Update (0.4ms)[0m  [1m[33mUPDATE "projects" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "projects"."id" = ?[0m  [["name", "naw"], ["description", "naw"], ["updated_at", "2020-10-23 07:55:33.651521"], ["id", 23]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 4416)
+
+
+Started PATCH "/projects/24" for ::1 at 2020-10-23 03:55:48 -0400
+Processing by ProjectsController#update as */*
+  Parameters: {"name"=>"me on a cool day at unemployment office", "description"=>"adam", "id"=>"24", "project"=>{"name"=>"me on a cool day at unemployment office", "description"=>"adam"}}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:12:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mProject Update (0.4ms)[0m  [1m[33mUPDATE "projects" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "projects"."id" = ?[0m  [["name", "me on a cool day at unemployment office"], ["description", "adam"], ["updated_at", "2020-10-23 07:55:48.102377"], ["id", 24]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+Completed 200 OK in 21ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 4440)
+
+
+Started POST "/users/bob" for ::1 at 2020-10-23 03:55:59 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"bob", "password"=>"[FILTERED]", "user"=>{"username"=>"bob"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36:in `login'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:40:in `login'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:40:in `login'
+Completed 200 OK in 269ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 4202)
+
+
+  [1m[35m (10.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 1]]
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Destroy (1.0ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 2]]
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (0.9ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 3]]
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProject Destroy (1.0ms)[0m  [1m[31mDELETE FROM "projects" WHERE "projects"."id" = ?[0m  [["id", 4]]
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills"[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (0.9ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 1]]
+  [1m[35m (5.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (1.0ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 2]]
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mSkill Destroy (1.0ms)[0m  [1m[31mDELETE FROM "skills" WHERE "skills"."id" = ?[0m  [["id", 3]]
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bob"], ["LIMIT", 1]]
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "bob"], ["last_name", "bobbin"], ["created_at", "2020-10-23 13:32:30.510907"], ["updated_at", "2020-10-23 13:32:30.510907"], ["username", "bob"], ["password_digest", "$2a$12$yWD6KBpNXb6qHLMGPDKbuO.l/jUmnUHgqxBOf.5akvuMy7/37IHn."]]
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Create (1.0ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "profolio"], ["description", "professional programming portfolio"], ["user_id", 3], ["created_at", "2020-10-23 13:32:30.582571"], ["updated_at", "2020-10-23 13:32:30.582571"]]
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Create (1.4ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "filler"], ["description", "fake stuff"], ["user_id", 3], ["created_at", "2020-10-23 13:32:30.593957"], ["updated_at", "2020-10-23 13:32:30.593957"]]
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Create (0.9ms)[0m  [1m[32mINSERT INTO "projects" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 3], ["created_at", "2020-10-23 13:32:30.607431"], ["updated_at", "2020-10-23 13:32:30.607431"]]
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Create (0.9ms)[0m  [1m[32mINSERT INTO "projects" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 3], ["created_at", "2020-10-23 13:32:30.618871"], ["updated_at", "2020-10-23 13:32:30.618871"]]
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Create (0.9ms)[0m  [1m[32mINSERT INTO "projects" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 3], ["created_at", "2020-10-23 13:32:30.630302"], ["updated_at", "2020-10-23 13:32:30.630302"]]
+  [1m[35m (7.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mProject Create (1.1ms)[0m  [1m[32mINSERT INTO "projects" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 3], ["created_at", "2020-10-23 13:32:30.652712"], ["updated_at", "2020-10-23 13:32:30.652712"]]
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.9ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ruby"], ["description", "Programming language whatever"], ["user_id", 3], ["created_at", "2020-10-23 13:32:30.664519"], ["updated_at", "2020-10-23 13:32:30.664519"]]
+  [1m[35m (5.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSkill Create (1.0ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "js"], ["description", "Programming language whatever"], ["user_id", 3], ["created_at", "2020-10-23 13:32:30.676534"], ["updated_at", "2020-10-23 13:32:30.676534"]]
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSkill Create (1.2ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "rails"], ["description", "Programming framework whatever"], ["user_id", 3], ["created_at", "2020-10-23 13:32:30.688527"], ["updated_at", "2020-10-23 13:32:30.688527"]]
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSkill Create (0.9ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 3], ["created_at", "2020-10-23 13:32:30.699834"], ["updated_at", "2020-10-23 13:32:30.699834"]]
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSkill Create (1.3ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 3], ["created_at", "2020-10-23 13:32:30.710893"], ["updated_at", "2020-10-23 13:32:30.710893"]]
+  [1m[35m (5.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mSkill Create (1.1ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 3], ["created_at", "2020-10-23 13:32:30.723471"], ["updated_at", "2020-10-23 13:32:30.723471"]]
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/users" for ::1 at 2020-10-23 09:33:52 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"tom", "last_name"=>"tom", "username"=>"tom", "password"=>"[FILTERED]", "user"=>{"first_name"=>"tom", "last_name"=>"tom", "username"=>"tom"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "tom"], ["last_name", "tom"], ["created_at", "2020-10-23 13:33:52.523818"], ["updated_at", "2020-10-23 13:33:52.523818"], ["username", "tom"], ["password_digest", "$2a$12$am2VejYt08fVx.OfDQisPOUMwlVIi.4M6HtX22giNWFcIR9O49QLu"]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit me"], ["description", "edit me"], ["user_id", 4], ["created_at", "2020-10-23 13:33:52.568202"], ["updated_at", "2020-10-23 13:33:52.568202"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.0ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit me"], ["description", "edit me"], ["user_id", 4], ["created_at", "2020-10-23 13:33:52.590545"], ["updated_at", "2020-10-23 13:33:52.590545"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (0.9ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit me"], ["description", "edit me"], ["user_id", 4], ["created_at", "2020-10-23 13:33:52.604810"], ["updated_at", "2020-10-23 13:33:52.604810"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.0ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit me"], ["description", "edit me"], ["user_id", 4], ["created_at", "2020-10-23 13:33:52.617093"], ["updated_at", "2020-10-23 13:33:52.617093"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.5ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit me"], ["description", "edit me"], ["user_id", 4], ["created_at", "2020-10-23 13:33:52.630061"], ["updated_at", "2020-10-23 13:33:52.630061"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit me"], ["description", "edit me"], ["user_id", 4], ["created_at", "2020-10-23 13:33:52.645662"], ["updated_at", "2020-10-23 13:33:52.645662"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (6.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.0ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit me"], ["description", "edit me"], ["user_id", 4], ["created_at", "2020-10-23 13:33:52.659868"], ["updated_at", "2020-10-23 13:33:52.659868"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit me"], ["description", "edit me"], ["user_id", 4], ["created_at", "2020-10-23 13:33:52.671691"], ["updated_at", "2020-10-23 13:33:52.671691"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (7.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.0ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit me"], ["description", "edit me"], ["user_id", 4], ["created_at", "2020-10-23 13:33:52.685815"], ["updated_at", "2020-10-23 13:33:52.685815"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.0ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit me"], ["description", "edit me"], ["user_id", 4], ["created_at", "2020-10-23 13:33:52.699124"], ["updated_at", "2020-10-23 13:33:52.699124"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.6ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit me"], ["description", "edit me"], ["user_id", 4], ["created_at", "2020-10-23 13:33:52.712498"], ["updated_at", "2020-10-23 13:33:52.712498"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.1ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit me"], ["description", "edit me"], ["user_id", 4], ["created_at", "2020-10-23 13:33:52.727171"], ["updated_at", "2020-10-23 13:33:52.727171"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:28:in `create'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:28:in `create'
+Completed 200 OK in 495ms (Views: 0.1ms | ActiveRecord: 106.1ms | Allocations: 92403)
+
+
+Started PATCH "/skills/10" for ::1 at 2020-10-23 09:34:16 -0400
+Processing by SkillsController#update as */*
+  Parameters: {"name"=>"ruby", "description"=>"learned ruby in the flatiron school", "id"=>"10", "skill"=>{"name"=>"ruby", "description"=>"learned ruby in the flatiron school"}}
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:11:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mSkill Update (0.9ms)[0m  [1m[33mUPDATE "skills" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "skills"."id" = ?[0m  [["name", "ruby"], ["description", "learned ruby in the flatiron school"], ["updated_at", "2020-10-23 13:34:16.228238"], ["id", 10]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[35m (7.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 9.6ms | Allocations: 5040)
+
+
+Started PATCH "/skills/11" for ::1 at 2020-10-23 09:35:00 -0400
+Processing by SkillsController#update as */*
+  Parameters: {"name"=>"javascript", "description"=>"learned js at flatiron school", "id"=>"11", "skill"=>{"name"=>"javascript", "description"=>"learned js at flatiron school"}}
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:11:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mSkill Update (1.5ms)[0m  [1m[33mUPDATE "skills" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "skills"."id" = ?[0m  [["name", "javascript"], ["description", "learned js at flatiron school"], ["updated_at", "2020-10-23 13:35:00.900807"], ["id", 11]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[35m (7.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+Completed 200 OK in 18ms (Views: 0.4ms | ActiveRecord: 9.7ms | Allocations: 5175)
+
+
+Started GET "/users/tom" for ::1 at 2020-10-23 09:36:13 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"tom"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 4350)
+
+
+Started GET "/users/tom" for ::1 at 2020-10-23 09:36:41 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"tom"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 4202)
+
+
+Started GET "/users/tom" for ::1 at 2020-10-23 09:37:51 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"tom"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 4203)
+
+
+Started GET "/users/tom" for ::1 at 2020-10-23 09:39:34 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"tom"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 4219)
+
+
+Started GET "/users/tom" for ::1 at 2020-10-23 09:43:05 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"tom"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.7ms | Allocations: 4203)
+
+
+Started GET "/users/tom" for ::1 at 2020-10-23 09:43:56 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"tom"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 4203)
+
+
+Started GET "/users/tom" for ::1 at 2020-10-23 09:45:19 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"tom"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 1.3ms | Allocations: 4202)
+
+
+Started GET "/users/tom" for ::1 at 2020-10-23 09:58:25 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"tom"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 4263)
+
+
+Started GET "/users/tom" for ::1 at 2020-10-23 10:03:12 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"tom"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "tom"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 4]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 42ms (Views: 0.1ms | ActiveRecord: 4.9ms | Allocations: 21237)
+
+
+Started POST "/users" for ::1 at 2020-10-23 10:03:38 -0400
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"haley", "last_name"=>"kirby", "username"=>"haley", "password"=>"[FILTERED]", "user"=>{"first_name"=>"haley", "last_name"=>"kirby", "username"=>"haley"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "haley"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Create (1.7ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "haley"], ["last_name", "kirby"], ["created_at", "2020-10-23 14:03:38.541078"], ["updated_at", "2020-10-23 14:03:38.541078"], ["username", "haley"], ["password_digest", "$2a$12$/jPiWGKAE20LyNpSCTE1ieLkkljTEy9z4jRBN/vPe6/tcGJP2BvuC"]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[35m (8.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.0ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit name"], ["description", "edit content"], ["user_id", 5], ["created_at", "2020-10-23 14:03:38.557002"], ["updated_at", "2020-10-23 14:03:38.557002"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (8.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.3ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit name"], ["description", "edit content"], ["user_id", 5], ["created_at", "2020-10-23 14:03:38.572081"], ["updated_at", "2020-10-23 14:03:38.572081"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.0ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit name"], ["description", "edit content"], ["user_id", 5], ["created_at", "2020-10-23 14:03:38.587067"], ["updated_at", "2020-10-23 14:03:38.587067"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.6ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit name"], ["description", "edit content"], ["user_id", 5], ["created_at", "2020-10-23 14:03:38.610183"], ["updated_at", "2020-10-23 14:03:38.610183"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (7.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.1ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit name"], ["description", "edit content"], ["user_id", 5], ["created_at", "2020-10-23 14:03:38.625201"], ["updated_at", "2020-10-23 14:03:38.625201"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.1ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit name"], ["description", "edit content"], ["user_id", 5], ["created_at", "2020-10-23 14:03:38.640013"], ["updated_at", "2020-10-23 14:03:38.640013"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (0.9ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit name"], ["description", "edit content"], ["user_id", 5], ["created_at", "2020-10-23 14:03:38.655000"], ["updated_at", "2020-10-23 14:03:38.655000"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.7ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit name"], ["description", "edit content"], ["user_id", 5], ["created_at", "2020-10-23 14:03:38.668286"], ["updated_at", "2020-10-23 14:03:38.668286"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit name"], ["description", "edit content"], ["user_id", 5], ["created_at", "2020-10-23 14:03:38.683522"], ["updated_at", "2020-10-23 14:03:38.683522"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (0.9ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit name"], ["description", "edit content"], ["user_id", 5], ["created_at", "2020-10-23 14:03:38.697438"], ["updated_at", "2020-10-23 14:03:38.697438"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (5.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.1ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit name"], ["description", "edit content"], ["user_id", 5], ["created_at", "2020-10-23 14:03:38.709097"], ["updated_at", "2020-10-23 14:03:38.709097"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (8.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "edit name"], ["description", "edit content"], ["user_id", 5], ["created_at", "2020-10-23 14:03:38.725559"], ["updated_at", "2020-10-23 14:03:38.725559"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:28:in `create'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:28:in `create'
+Completed 200 OK in 414ms (Views: 0.1ms | ActiveRecord: 110.4ms | Allocations: 73816)
+
+
+Started GET "/users/haley" for ::1 at 2020-10-23 10:04:40 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"haley"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "haley"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 5]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 43ms (Views: 0.1ms | ActiveRecord: 5.7ms | Allocations: 21233)
+
+
+Started POST "/users" for ::1 at 2020-10-23 10:06:30 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"blue", "last_name"=>"eyes", "username"=>"white", "password"=>"[FILTERED]", "user"=>{"first_name"=>"blue", "last_name"=>"eyes", "username"=>"white"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "white"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "blue"], ["last_name", "eyes"], ["created_at", "2020-10-23 14:06:30.333638"], ["updated_at", "2020-10-23 14:06:30.333638"], ["username", "white"], ["password_digest", "$2a$12$15GAVL6LeE1bO.gdS9u5u.II7dLrAScuPqBKfwCh0GRhZkPsSwmxq"]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[35m (7.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.2ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit Name"], ["description", "Edit Content"], ["user_id", 6], ["created_at", "2020-10-23 14:06:30.358631"], ["updated_at", "2020-10-23 14:06:30.358631"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.0ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit Name"], ["description", "Edit Content"], ["user_id", 6], ["created_at", "2020-10-23 14:06:30.385529"], ["updated_at", "2020-10-23 14:06:30.385529"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.2ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit Name"], ["description", "Edit Content"], ["user_id", 6], ["created_at", "2020-10-23 14:06:30.399911"], ["updated_at", "2020-10-23 14:06:30.399911"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (0.9ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit Name"], ["description", "Edit Content"], ["user_id", 6], ["created_at", "2020-10-23 14:06:30.415658"], ["updated_at", "2020-10-23 14:06:30.415658"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (5.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.1ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit Name"], ["description", "Edit Content"], ["user_id", 6], ["created_at", "2020-10-23 14:06:30.427993"], ["updated_at", "2020-10-23 14:06:30.427993"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.7ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit Name"], ["description", "Edit Content"], ["user_id", 6], ["created_at", "2020-10-23 14:06:30.444432"], ["updated_at", "2020-10-23 14:06:30.444432"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (5.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.0ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit Name"], ["description", "Edit Content"], ["user_id", 6], ["created_at", "2020-10-23 14:06:30.464688"], ["updated_at", "2020-10-23 14:06:30.464688"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.4ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit Name"], ["description", "Edit Content"], ["user_id", 6], ["created_at", "2020-10-23 14:06:30.477232"], ["updated_at", "2020-10-23 14:06:30.477232"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (8.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit Name"], ["description", "Edit Content"], ["user_id", 6], ["created_at", "2020-10-23 14:06:30.494963"], ["updated_at", "2020-10-23 14:06:30.494963"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (0.9ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit Name"], ["description", "Edit Content"], ["user_id", 6], ["created_at", "2020-10-23 14:06:30.507674"], ["updated_at", "2020-10-23 14:06:30.507674"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (8.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (0.9ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit Name"], ["description", "Edit Content"], ["user_id", 6], ["created_at", "2020-10-23 14:06:30.522024"], ["updated_at", "2020-10-23 14:06:30.522024"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (6.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.0ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit Name"], ["description", "Edit Content"], ["user_id", 6], ["created_at", "2020-10-23 14:06:30.535496"], ["updated_at", "2020-10-23 14:06:30.535496"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (6.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:28:in `create'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:28:in `create'
+Completed 200 OK in 442ms (Views: 0.1ms | ActiveRecord: 114.7ms | Allocations: 90509)
+
+
+Started GET "/users/white" for ::1 at 2020-10-23 10:06:35 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"white"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "white"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 6]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.2ms | Allocations: 4324)
+
+
+Started POST "/users" for ::1 at 2020-10-23 10:07:51 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#create as */*
+  Parameters: {"first_name"=>"da", "last_name"=>"rk", "username"=>"mag", "password"=>"[FILTERED]", "user"=>{"first_name"=>"da", "last_name"=>"rk", "username"=>"mag"}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[36mUser Create (1.8ms)[0m  [1m[32mINSERT INTO "users" ("first_name", "last_name", "created_at", "updated_at", "username", "password_digest") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "da"], ["last_name", "rk"], ["created_at", "2020-10-23 14:07:51.330230"], ["updated_at", "2020-10-23 14:07:51.330230"], ["username", "mag"], ["password_digest", "$2a$12$mmRzP0qlU058arjZawHxluQbY1hUNBtCWb8iiLTwm30Ne3ecI4rVO"]]
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:19:in `create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (0.9ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit name"], ["description", "Edit content"], ["user_id", 7], ["created_at", "2020-10-23 14:07:51.351996"], ["updated_at", "2020-10-23 14:07:51.351996"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (0.9ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit name"], ["description", "Edit content"], ["user_id", 7], ["created_at", "2020-10-23 14:07:51.374182"], ["updated_at", "2020-10-23 14:07:51.374182"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (5.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.0ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit name"], ["description", "Edit content"], ["user_id", 7], ["created_at", "2020-10-23 14:07:51.386423"], ["updated_at", "2020-10-23 14:07:51.386423"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit name"], ["description", "Edit content"], ["user_id", 7], ["created_at", "2020-10-23 14:07:51.400723"], ["updated_at", "2020-10-23 14:07:51.400723"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.2ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit name"], ["description", "Edit content"], ["user_id", 7], ["created_at", "2020-10-23 14:07:51.414202"], ["updated_at", "2020-10-23 14:07:51.414202"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (7.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (0.9ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit name"], ["description", "Edit content"], ["user_id", 7], ["created_at", "2020-10-23 14:07:51.436640"], ["updated_at", "2020-10-23 14:07:51.436640"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (7.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (1.3ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit name"], ["description", "Edit content"], ["user_id", 7], ["created_at", "2020-10-23 14:07:51.450834"], ["updated_at", "2020-10-23 14:07:51.450834"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.2ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit name"], ["description", "Edit content"], ["user_id", 7], ["created_at", "2020-10-23 14:07:51.463290"], ["updated_at", "2020-10-23 14:07:51.463290"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (7.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (0.9ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit name"], ["description", "Edit content"], ["user_id", 7], ["created_at", "2020-10-23 14:07:51.478489"], ["updated_at", "2020-10-23 14:07:51.478489"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (7.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (0.9ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit name"], ["description", "Edit content"], ["user_id", 7], ["created_at", "2020-10-23 14:07:51.492548"], ["updated_at", "2020-10-23 14:07:51.492548"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[36mSkill Create (0.9ms)[0m  [1m[32mINSERT INTO "skills" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit name"], ["description", "Edit content"], ["user_id", 7], ["created_at", "2020-10-23 14:07:51.505701"], ["updated_at", "2020-10-23 14:07:51.505701"]]
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (6.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:23:in `block in create'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mProject Create (1.5ms)[0m  [1m[32mINSERT INTO "projects" ("name", "description", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Edit name"], ["description", "Edit content"], ["user_id", 7], ["created_at", "2020-10-23 14:07:51.518142"], ["updated_at", "2020-10-23 14:07:51.518142"]]
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `block in create'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:28:in `create'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:28:in `create'
+Completed 200 OK in 423ms (Views: 0.1ms | ActiveRecord: 111.0ms | Allocations: 88634)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:09:42 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 12ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 4328)
+
+
+Started PATCH "/projects/29" for ::1 at 2020-10-23 10:12:13 -0400
+Processing by ProjectsController#update as */*
+  Parameters: {"name"=>"dark magic attack", "description"=>"If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls", "id"=>"29", "project"=>{"name"=>"dark magic attack", "description"=>"If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls"}}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:12:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mProject Update (0.9ms)[0m  [1m[33mUPDATE "projects" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "projects"."id" = ?[0m  [["name", "dark magic attack"], ["description", "If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls"], ["updated_at", "2020-10-23 14:12:13.503677"], ["id", 29]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[35m (9.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 10.8ms | Allocations: 5272)
+
+
+Started PATCH "/skills/28" for ::1 at 2020-10-23 10:12:25 -0400
+Processing by SkillsController#update as */*
+  Parameters: {"name"=>"dark magic attack", "description"=>"If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls", "id"=>"28", "skill"=>{"name"=>"dark magic attack", "description"=>"If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls"}}
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:11:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mSkill Update (0.9ms)[0m  [1m[33mUPDATE "skills" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "skills"."id" = ?[0m  [["name", "dark magic attack"], ["description", "If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls"], ["updated_at", "2020-10-23 14:12:25.927543"], ["id", 28]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[35m (6.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 8.3ms | Allocations: 5664)
+
+
+Started PATCH "/skills/29" for ::1 at 2020-10-23 10:12:44 -0400
+Processing by SkillsController#update as */*
+  Parameters: {"name"=>"python", "description"=>"maybe one day...", "id"=>"29", "skill"=>{"name"=>"python", "description"=>"maybe one day..."}}
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:11:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mSkill Update (1.1ms)[0m  [1m[33mUPDATE "skills" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "skills"."id" = ?[0m  [["name", "python"], ["description", "maybe one day..."], ["updated_at", "2020-10-23 14:12:44.130512"], ["id", 29]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[35m (6.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+Completed 200 OK in 14ms (Views: 0.2ms | ActiveRecord: 7.8ms | Allocations: 5540)
+
+
+Started PATCH "/skills/30" for ::1 at 2020-10-23 10:13:14 -0400
+Processing by SkillsController#update as */*
+  Parameters: {"name"=>"foundation", "description"=>"thanks kalada", "id"=>"30", "skill"=>{"name"=>"foundation", "description"=>"thanks kalada"}}
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:11:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mSkill Update (1.2ms)[0m  [1m[33mUPDATE "skills" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "skills"."id" = ?[0m  [["name", "foundation"], ["description", "thanks kalada"], ["updated_at", "2020-10-23 14:13:14.530276"], ["id", 30]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[35m (9.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 10.9ms | Allocations: 5550)
+
+
+Started PATCH "/skills/31" for ::1 at 2020-10-23 10:13:32 -0400
+Processing by SkillsController#update as */*
+  Parameters: {"name"=>"sarcasm", "description"=>"was present", "id"=>"31", "skill"=>{"name"=>"sarcasm", "description"=>"was present"}}
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:11:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mSkill Update (0.9ms)[0m  [1m[33mUPDATE "skills" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "skills"."id" = ?[0m  [["name", "sarcasm"], ["description", "was present"], ["updated_at", "2020-10-23 14:13:32.311549"], ["id", 31]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[35m (10.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 11.4ms | Allocations: 5157)
+
+
+Started PATCH "/skills/32" for ::1 at 2020-10-23 10:13:53 -0400
+Processing by SkillsController#update as */*
+  Parameters: {"name"=>"bootstrap", "description"=>"is the future", "id"=>"32", "skill"=>{"name"=>"bootstrap", "description"=>"is the future"}}
+  [1m[36mSkill Load (0.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = ? LIMIT ?[0m  [["id", 32], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:11:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mSkill Update (1.1ms)[0m  [1m[33mUPDATE "skills" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "skills"."id" = ?[0m  [["name", "bootstrap"], ["description", "is the future"], ["updated_at", "2020-10-23 14:13:53.010494"], ["id", 32]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[35m (6.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 8.3ms | Allocations: 5153)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:17:08 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 4205)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:20:22 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 4202)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:21:55 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 4202)
+
+
+Started PATCH "/skills/29" for ::1 at 2020-10-23 10:22:07 -0400
+Processing by SkillsController#update as */*
+  Parameters: {"name"=>"", "description"=>"", "id"=>"29", "skill"=>{"name"=>"", "description"=>""}}
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:11:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mSkill Update (1.7ms)[0m  [1m[33mUPDATE "skills" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "skills"."id" = ?[0m  [["name", ""], ["description", ""], ["updated_at", "2020-10-23 14:22:07.174933"], ["id", 29]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 8.2ms | Allocations: 5150)
+
+
+Started PATCH "/projects/30" for ::1 at 2020-10-23 10:23:04 -0400
+Processing by ProjectsController#update as */*
+  Parameters: {"name"=>"pokesim", "description"=>"https://github.com/NavPoint1/PokeSim", "id"=>"30", "project"=>{"name"=>"pokesim", "description"=>"https://github.com/NavPoint1/PokeSim"}}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:12:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mProject Update (1.1ms)[0m  [1m[33mUPDATE "projects" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "projects"."id" = ?[0m  [["name", "pokesim"], ["description", "https://github.com/NavPoint1/PokeSim"], ["updated_at", "2020-10-23 14:23:04.806762"], ["id", 30]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+Completed 200 OK in 15ms (Views: 0.3ms | ActiveRecord: 8.9ms | Allocations: 5154)
+
+
+Started PATCH "/projects/31" for ::1 at 2020-10-23 10:25:05 -0400
+Processing by ProjectsController#update as */*
+  Parameters: {"name"=>"pokesim example", "description"=>"<img src=\"https://i.imgur.com/2amRwXO.png\">", "id"=>"31", "project"=>{"name"=>"pokesim example", "description"=>"<img src=\"https://i.imgur.com/2amRwXO.png\">"}}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 31], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:12:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mProject Update (0.8ms)[0m  [1m[33mUPDATE "projects" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "projects"."id" = ?[0m  [["name", "pokesim example"], ["description", "<img src=\"https://i.imgur.com/2amRwXO.png\">"], ["updated_at", "2020-10-23 14:25:05.812819"], ["id", 31]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[35m (7.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 8.6ms | Allocations: 5171)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:38:15 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.7ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 10ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 4271)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:38:48 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 4212)
+
+
+Started PATCH "/skills/29" for ::1 at 2020-10-23 10:41:52 -0400
+Processing by SkillsController#update as */*
+  Parameters: {"name"=>"ruby", "description"=>"tfoisdhfosHDF", "id"=>"29", "skill"=>{"name"=>"ruby", "description"=>"tfoisdhfosHDF"}}
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = ? LIMIT ?[0m  [["id", 29], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:11:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mSkill Update (1.3ms)[0m  [1m[33mUPDATE "skills" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "skills"."id" = ?[0m  [["name", "ruby"], ["description", "tfoisdhfosHDF"], ["updated_at", "2020-10-23 14:41:52.119464"], ["id", 29]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[35m (9.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+Completed 200 OK in 18ms (Views: 0.3ms | ActiveRecord: 11.1ms | Allocations: 5189)
+
+
+Started PATCH "/skills/28" for ::1 at 2020-10-23 10:42:36 -0400
+Processing by SkillsController#update as */*
+  Parameters: {"name"=>"dark magic attack", "description"=>"If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls JHBVSDFHKGLBDSFKBHLGFSDHKLGFESHGJKLFSDHLJKGFSDGHKLEFSHGJKLSDFhkjlgdfsGKHLBFSDhklgfsdkhglfsdhlkgfsdahkljgdfshjkglesfkhjglfsdkhgld", "id"=>"28", "skill"=>{"name"=>"dark magic attack", "description"=>"If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls JHBVSDFHKGLBDSFKBHLGFSDHKLGFESHGJKLFSDHLJKGFSDGHKLEFSHGJKLSDFhkjlgdfsGKHLBFSDhklgfsdkhglfsdhlkgfsdahkljgdfshjkglesfkhjglfsdkhgld"}}
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:11:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mSkill Update (1.0ms)[0m  [1m[33mUPDATE "skills" SET "description" = ?, "updated_at" = ? WHERE "skills"."id" = ?[0m  [["description", "If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls JHBVSDFHKGLBDSFKBHLGFSDHKLGFESHGJKLFSDHLJKGFSDGHKLEFSHGJKLSDFhkjlgdfsGKHLBFSDhklgfsdkhglfsdhlkgfsdahkljgdfshjkglesfkhjglfsdkhgld"], ["updated_at", "2020-10-23 14:42:36.688268"], ["id", 28]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[35m (7.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 9.3ms | Allocations: 5531)
+
+
+Started PATCH "/skills/28" for ::1 at 2020-10-23 10:43:06 -0400
+Processing by SkillsController#update as */*
+  Parameters: {"name"=>"dark magic attack", "description"=>"If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls KJHSDFKJHFSDJKHFDS KJHESFIUHSDFJHKDFSJHK OUIHDSFHODFSKJHDFS OUHISAFOHUSFDOUHDSFh ouihfdsohuidsfhoidfsohj", "id"=>"28", "skill"=>{"name"=>"dark magic attack", "description"=>"If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls KJHSDFKJHFSDJKHFDS KJHESFIUHSDFJHKDFSJHK OUIHDSFHODFSKJHDFS OUHISAFOHUSFDOUHDSFh ouihfdsohuidsfhoidfsohj"}}
+  [1m[36mSkill Load (0.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:11:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mSkill Update (1.0ms)[0m  [1m[33mUPDATE "skills" SET "description" = ?, "updated_at" = ? WHERE "skills"."id" = ?[0m  [["description", "If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls KJHSDFKJHFSDJKHFDS KJHESFIUHSDFJHKDFSJHK OUIHDSFHODFSKJHDFS OUHISAFOHUSFDOUHDSFh ouihfdsohuidsfhoidfsohj"], ["updated_at", "2020-10-23 14:43:06.884264"], ["id", 28]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[35m (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 9.2ms | Allocations: 5145)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:43:38 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 4214)
+
+
+Started PATCH "/skills/28" for ::1 at 2020-10-23 10:43:50 -0400
+Processing by SkillsController#update as */*
+  Parameters: {"name"=>"dark magic attack", "description"=>"If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls heafshibujowfekjhfsdaKJBLFDSKHJBDSFkhbjdfskjhgdsfBHJKGFDSKHJLBGDFSKHJGBLFDSKJHFDSKJHDSFKJHSDFKJHSDFKJHSDFJKH;DSGFAHJ;KDSFGAJK;H", "id"=>"28", "skill"=>{"name"=>"dark magic attack", "description"=>"If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls heafshibujowfekjhfsdaKJBLFDSKHJBDSFkhbjdfskjhgdsfBHJKGFDSKHJLBGDFSKHJGBLFDSKJHFDSKJHDSFKJHSDFKJHSDFKJHSDFJKH;DSGFAHJ;KDSFGAJK;H"}}
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."id" = ? LIMIT ?[0m  [["id", 28], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:11:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[36mSkill Update (1.1ms)[0m  [1m[33mUPDATE "skills" SET "description" = ?, "updated_at" = ? WHERE "skills"."id" = ?[0m  [["description", "If you control \"Dark Magician\": Destroy all Spells and Traps your opponent controls heafshibujowfekjhfsdaKJBLFDSKHJBDSFkhbjdfskjhgdsfBHJKGFDSKHJLBGDFSKHJGBLFDSKJHFDSKJHDSFKJHSDFKJHSDFKJHSDFJKH;DSGFAHJ;KDSFGAJK;H"], ["updated_at", "2020-10-23 14:43:50.618801"], ["id", 28]]
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+  [1m[35m (8.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/skills_controller.rb:12:in `update'
+Completed 200 OK in 16ms (Views: 0.3ms | ActiveRecord: 9.7ms | Allocations: 5141)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:47:11 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 4215)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:47:35 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 5ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 4212)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:48:01 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 4212)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:50:29 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 4212)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:51:19 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 4212)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:51:35 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.4ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 0.9ms | Allocations: 4212)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:51:42 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 7ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 4212)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:51:43 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 0.8ms | Allocations: 4212)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:51:46 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 1.1ms | Allocations: 4212)
+
+
+Started GET "/users/mag" for ::1 at 2020-10-23 10:51:53 -0400
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.5ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 4215)
+
+

@@ -7,4 +7,16 @@ class SkillsController < ApplicationController
         end
     end
 
+    def update
+        skill = Skill.find(params[:id])
+        skill.update(name: params[:name], description: params[:description])
+
+        if skill.save
+
+            render json: skill
+            
+        end
+
+    end
+
 end

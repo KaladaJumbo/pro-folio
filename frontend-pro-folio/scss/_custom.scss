@@ -205,8 +205,9 @@ html {
     background-color: $primary-color;
     color: $font-color;
     border-radius: 20px;
-    
-     
+    border-color: $secondary-color;
+    //border-style: groove;
+    //there should be a way to choose what border to show
   }
 
   .margins{
@@ -292,4 +293,39 @@ html {
 
 }
 
-/*******************************carousel********************************/ 
+/**********************************************************************/ 
+
+/****************************** SKILLS AND PROJECTS STYLING *******************/
+
+.skill-name {
+  font-size: 1.8rem;
+  color: wheat;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-weight: 300;
+  
+}
+
+
+.skill-description {
+  overflow: hidden;
+}
+
+
+
+/**************************************************************************************/
+
+
+/***************************** edit button ***************************************/ 
+.buttonIcon {
+  float: right;
+  margin-bottom: 10px;
+}
+
+
+.buttonIcon:hover {
+  color: $secondary-color;
+  cursor: pointer;
+  
+}
+
+/************************o**************************************************/ 
