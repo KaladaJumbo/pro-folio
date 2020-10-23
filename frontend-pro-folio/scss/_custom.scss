@@ -313,7 +313,29 @@ html {
 
 
 /**************************************************************************************/
+/********************************* CONTACT CARD **************************************/
+#c {
+  color: white;
+  background: $primary-color;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+  height: 1000px;
+  width: 500px;
+}
 
+.contact-text {
+  text-align: center;
+}
+
+.contact-item {
+  list-style: none;
+}
+
+#contact-edit{
+  bottom: 0;
+  margin-right: 30px;
+}
+/*************************************************************************************/
 
 /***************************** edit button ***************************************/ 
 .buttonIcon {

@@ -501,8 +501,6 @@ function pushSkill(e, location){
     skillName = e.target[0].value
     skillDescription = e.target[1].value
 
-    console.log("in the push");
-
     meta = {
         method: "PATCH",
         headers: {
@@ -710,26 +708,64 @@ function pushProject(e, location){
 
 
 /********************************************* CONTACTS *********************************************************/
-function handleContactButton() {
+function handleContactButton(string) {
     form.innerHTML = ""
 
     mainContainer.innerHTML = `
-    <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 firstRow">
-      <div class="cell auto cell-style">
-
-      </div>
-      <div class="cell auto cell-style margins">cell</div>
-      <div class="cell auto cell-style margins">cell</div>
-    </div>
-
-    <br>
-    <br>
+    <div id="c">
+   
+      <h4 class="contact-text"><b>${user.first_name + " " + user.last_name}</b></h4>
+      <ul class="contact-text">
         
-    <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 secondRow">
-      <div class="cell auto cell-style margins">cell</div>
-      <div class="cell auto cell-style margins">cell</div>
+      </ul>
+      <span class= "buttonIcon" id="contact-edit"><i class="far fa-edit"></i></span>
     </div>
     `
+    let button = document.querySelector("#contact-edit")
+    button.addEventListener("click", editContact)
+
 }
 
+
+function editContact() {
+    mainContainer.innerHTML = ""
+    form.innerHTML = ""
+    form.innerHTML = 
+    `
+        <form class="newProject">
+            <div class="sign-in-form">
+                <h4 class="text-center">Edit Contact</h4>
+        
+                <label>Contact</label>
+                <input type="text" class="sign-in-form-username" id="skill-name">
+
+                <label>Contact Description</label>
+                <input type="text" class="sign-in-form-username" id="skill-description" style="margin: 0px 0px 16px; height: 120px; width: 100%;" >
+
+                <button type="submit" class="sign-in-form-button">Confirm changes</button>
+            </div>
+        </form>
+    `
+    form.addEventListener("submit", (e) => {
+        e.preventDefault()
+        let contact = e.target[0].value
+        let contactInfo = e.target[1].value
+        form.innerHTML = ""
+        mainContainer.innerHTML = `
+        <div id="c">
+       
+          <h4 class="contact-text"><b>${user.first_name + " " + user.last_name}</b></h4>
+          <ul id="contact-list" class="contact-text">
+            
+          </ul>
+          <span class= "buttonIcon" id="contact-edit"><i class="far fa-edit"></i></span>
+        </div>
+        `
+        let ul = document.querySelector("#contact-list")
+        let li = document.createElement("li")
+        li.innerHTML = `${contact}: ${contactInfo}`
+        li.classList.add("contact-item")
+        ul.appendChild(li)
+    })
+}
 /*****************************************************************************************************************/
