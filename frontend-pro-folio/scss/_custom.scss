@@ -329,3 +329,26 @@ html {
 }
 
 /************************o**************************************************/ 
+ .card{
+  background-color: $secondary-color;
+  border-radius: 30px;
+  border: transparent;
+  .name{
+    text-align: center;
+    text-transform: uppercase;
+  }
+  span{
+     text-align: right;
+     margin-right: 10px;
+     margin-bottom: 8px;
+     &:hover{
+       color: $font-color;
+     }
+  }
+  h4{
+       text-align: center;
+  }
+  img{
+    border-radius: 100px;
+  }
+ }

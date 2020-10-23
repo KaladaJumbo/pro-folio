@@ -33,9 +33,7 @@ const mainContainer = document.querySelector("#cellwall")
 /************************************* EVENT LISTENERS *************************************/ 
 
 document.addEventListener("DOMContentLoaded", () => {
-    miniBarConfig();
-    addNavBarListeners();
-    loadUserInfo()
+    loadUserInfo();
 })
 
 
@@ -107,9 +105,16 @@ function loadUserInfo() {
         .then(r => r.json())
         .then(data => {
             user = data
+            miniBarConfig()
+            addNavBarListeners();
         })
     }
+    else {
+        miniBarConfig()
+        addNavBarListeners();
+    }
 }
+
 
 /*******************************************************************************************/ 
 
@@ -291,12 +296,28 @@ function miniBarConfig() {
 }
 
 //****************************************************** HOME PAGE  *********************************************************************************/ 
-
 function homePageConfig() {
     form.innerHTML = ""
-
+    console.log(user);
     mainContainer.innerHTML = `
-    <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 firstRow">
+    <div class="card" style="width: 300px;">
+        <div class="name">
+            ${user.first_name} ${user.last_name}
+        </div>
+        <img src="https://www.likemind.media/wp-content/uploads/2017/06/Profile-Photo.png">
+        <div class="card-section">
+            <h4 class="status-name skill-name">Status header</h4>
+            <p  class="status-description skill-description">Status description</p>
+        </div>
+        <span class= "buttonIcon" id="b3"><i class="far fa-edit profile-edit"></i></span>
+    </div>
+    `
+
+}
+//****************************************************************************************************/
+
+
+{/* <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 firstRow">
       <div class="cell auto cell-style">
         <div class="margin-items" id="profile-pic">
           <div class="card pic">
@@ -314,14 +335,7 @@ function homePageConfig() {
     <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 secondRow">
       <div class="cell auto cell-style margins">cell</div>
       <div class="cell auto cell-style margins">cell</div>
-    </div>
-    `
-
-}
-//****************************************************************************************************/
-
-
-
+    </div> */}
 
 
 

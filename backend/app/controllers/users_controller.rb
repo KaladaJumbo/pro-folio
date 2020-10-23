@@ -20,13 +20,8 @@ class UsersController < ApplicationController
 
             6.times do 
 
-<<<<<<< HEAD
-                skill = Skill.create(name: "edit me", description: "edit me", user_id: user.id)
-                project = Project.create(name: "edit me", description: "edit me", user_id: user.id)
-=======
                 skill = Skill.create(name: "Edit name", description: "Edit content", user_id: user.id)
                 project = Project.create(name: "Edit name", description: "Edit content", user_id: user.id)
->>>>>>> 975e99d8daa7662b9f24ce08730df19b6b4da76e
 
             end 
 
