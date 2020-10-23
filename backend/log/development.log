@@ -4055,3 +4055,102 @@ Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.7ms | Allocations: 3110)
   [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
   [1m[36mSkill Create (0.3ms)[0m  [1m[32mINSERT INTO "skills" ("user_id", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["user_id", 7], ["created_at", "2020-10-22 19:44:27.792125"], ["updated_at", "2020-10-22 19:44:27.792125"]]
   [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+Started POST "/users/bob" for ::1 at 2020-10-23 03:36:56 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"bob", "password"=>"[FILTERED]", "user"=>{"username"=>"bob"}}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36:in `login'
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:40:in `login'
+  [1m[36mProject Load (0.8ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:40:in `login'
+Completed 200 OK in 279ms (Views: 0.1ms | ActiveRecord: 4.0ms | Allocations: 21930)
+
+
+Started GET "/users/bob" for ::1 at 2020-10-23 03:54:22 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"bob"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 27ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 20136)
+
+
+Started PATCH "/projects/21" for ::1 at 2020-10-23 03:54:53 -0400
+Processing by ProjectsController#update as */*
+  Parameters: {"name"=>"project 1", "description"=>"project stuff", "id"=>"21", "project"=>{"name"=>"project 1", "description"=>"project stuff"}}
+  [1m[36mProject Load (0.2ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 21], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:12:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mProject Update (0.5ms)[0m  [1m[33mUPDATE "projects" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "projects"."id" = ?[0m  [["name", "project 1"], ["description", "project stuff"], ["updated_at", "2020-10-23 07:54:53.058984"], ["id", 21]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 4968)
+
+
+Started POST "/users/bob" for ::1 at 2020-10-23 03:55:11 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"bob", "password"=>"[FILTERED]", "user"=>{"username"=>"bob"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36:in `login'
+  [1m[36mSkill Load (0.1ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:40:in `login'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:40:in `login'
+Completed 200 OK in 264ms (Views: 0.1ms | ActiveRecord: 0.4ms | Allocations: 4173)
+
+
+Started PATCH "/projects/23" for ::1 at 2020-10-23 03:55:33 -0400
+Processing by ProjectsController#update as */*
+  Parameters: {"name"=>"naw", "description"=>"naw", "id"=>"23", "project"=>{"name"=>"naw", "description"=>"naw"}}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 23], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:12:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mProject Update (0.4ms)[0m  [1m[33mUPDATE "projects" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "projects"."id" = ?[0m  [["name", "naw"], ["description", "naw"], ["updated_at", "2020-10-23 07:55:33.651521"], ["id", 23]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 4416)
+
+
+Started PATCH "/projects/24" for ::1 at 2020-10-23 03:55:48 -0400
+Processing by ProjectsController#update as */*
+  Parameters: {"name"=>"me on a cool day at unemployment office", "description"=>"adam", "id"=>"24", "project"=>{"name"=>"me on a cool day at unemployment office", "description"=>"adam"}}
+  [1m[36mProject Load (0.3ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."id" = ? LIMIT ?[0m  [["id", 24], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:12:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[36mProject Update (0.4ms)[0m  [1m[33mUPDATE "projects" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "projects"."id" = ?[0m  [["name", "me on a cool day at unemployment office"], ["description", "adam"], ["updated_at", "2020-10-23 07:55:48.102377"], ["id", 24]]
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/projects_controller.rb:13:in `update'
+Completed 200 OK in 21ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 4440)
+
+
+Started POST "/users/bob" for ::1 at 2020-10-23 03:55:59 -0400
+Processing by UsersController#login as */*
+  Parameters: {"username"=>"bob", "password"=>"[FILTERED]", "user"=>{"username"=>"bob"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "bob"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:36:in `login'
+  [1m[36mSkill Load (0.2ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:40:in `login'
+  [1m[36mProject Load (0.1ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:40:in `login'
+Completed 200 OK in 269ms (Views: 0.1ms | ActiveRecord: 0.6ms | Allocations: 4202)
+
+

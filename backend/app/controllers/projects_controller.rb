@@ -7,4 +7,17 @@ class ProjectsController < ApplicationController
             render json: project
         end
     end
+
+    def update
+        project = Project.find(params[:id])
+        project.update(name: params[:name], description: params[:description])
+
+        if project.save
+
+            render json: project
+            
+        end
+
+    end
+    
 end
