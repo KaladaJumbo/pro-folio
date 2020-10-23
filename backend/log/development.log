@@ -5273,3 +5273,16 @@ Processing by UsersController#show as */*
 Completed 200 OK in 16ms (Views: 0.1ms | ActiveRecord: 1.0ms | Allocations: 4215)
 
 
+Started GET "/users/mag" for ::1 at 2020-10-23 11:00:21 -0400
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"mag"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."username" = ? LIMIT ?[0m  [["username", "mag"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10:in `show'
+  [1m[36mSkill Load (0.6ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+  [1m[36mProject Load (0.6ms)[0m  [1m[34mSELECT "projects".* FROM "projects" WHERE "projects"."user_id" = ?[0m  [["user_id", 7]]
+  ↳ app/controllers/users_controller.rb:11:in `show'
+Completed 200 OK in 40ms (Views: 0.1ms | ActiveRecord: 1.6ms | Allocations: 20204)
+
+
