@@ -298,24 +298,131 @@ function miniBarConfig() {
 //****************************************************** HOME PAGE  *********************************************************************************/ 
 function homePageConfig() {
     form.innerHTML = ""
-    console.log(user);
-    mainContainer.innerHTML = `
+    mainContainer.innerHTML = ""
+
+    mainContainer.innerHTML =  `
+    <div class="grid-x grid-padding-x small-up-12 medium-up-12 large-up-12 firstRow " id="card-container">
+
+    <div class="card" id="profile-card"style="width: 300px;">
+        <div class="name">
+            <h4>${user.first_name} ${user.last_name}</h4>
+        </div>
+        <img src=${user.image}>
+        <span class= "buttonIcon" id="b3"><i class="far fa-edit profile-edit"></i></span>
+    </div>
+
+
+    <div class="card pro" style="width: 600px; height: 200px;" id="profile-card2">
+        <div class="card-section ">
+            <h4 class="status-name skill-name">Feeling Fantastic</h4>
+            <p  class="status-description skill-description">
+            I am a full stack developer looking for job oppertunities in the software development field.
+            I like to play games on my days off, and I am an expert in UI frameworks.
+            </p>
+        </div>
+        <span class= "buttonIcon" id="b3"><i class="far fa-edit profile-edit"></i></span>
+    </div>
+
+    <div class="card pro" style="width: 600px; height: 200px;" id="pro">
+        <div class="card-section ">
+            <h4 class="status-name skill-name">Interested in side projects</h4>
+            <p  class="status-description skill-description">
+            If anyone is working on a pet project and needs some help, I Can definately help in doing frontend UI design. Also, I am looking for a back end developer that would like to work on a project with myself and a couple of talented individuals. 
+            </p>
+        </div>
+        <span class= "buttonIcon" id="b3"><i class="far fa-edit profile-edit"></i></span>
+    </div>
+
+    </div>
+    `
+    let editButton = document.querySelector(".profile-edit")
+    editButton.addEventListener("click", () => {
+        editCard()
+    })
+
+}
+
+function editCard() {
+    mainContainer.innerHTML = ""
+    form.innerHTML = ""
+    
+    form.innerHTML =
+    `
+        <form class="newCard">
+            <div class="sign-in-form">
+                <h4 class="text-center">Edit Profile</h4>
+        
+                <label>Profile picture</label>
+                <input type="text" class="sign-in-form-username" id="pro-pic">
+
+                <label>Profile header</label>
+                <input type="text" class="sign-in-form-username" id="profile-name">
+
+                <label>profile description</label>
+                <input type="text" class="sign-in-form-username" id="profile-description" style="margin: 0px 0px 16px; height: 120px; width: 100%;" >
+
+                <button type="submit" class="sign-in-form-button">Confirm changes</button>
+            </div>
+        </form>
+    `
+    
+    let newPage = document.querySelector(".newSkill")
+    newPage.addEventListener("submit", (e) => {
+        e.preventDefault()
+        pushHome(e)
+    })
+}
+//****************************************************************************************************/
+
+
+function pushHome(e) {
+
+    mainContainer.innerHTML = 
+    `
     <div class="card" style="width: 300px;">
         <div class="name">
             ${user.first_name} ${user.last_name}
         </div>
-        <img src="https://www.likemind.media/wp-content/uploads/2017/06/Profile-Photo.png">
+        <img src=${user.image}>
         <div class="card-section">
-            <h4 class="status-name skill-name">Status header</h4>
-            <p  class="status-description skill-description">Status description</p>
+            <h4 class="status-name skill-name">${e.target[1].value}</h4>
+            <p  class="status-description skill-description">${e.target[2].value}</p>
         </div>
         <span class= "buttonIcon" id="b3"><i class="far fa-edit profile-edit"></i></span>
     </div>
+
     `
 
-}
-//****************************************************************************************************/
+    let editButton = document.querySelector(".profile-edit")
+    editButton.addEventListener("click", () => {
+        editCard()
+    })
 
+
+    let image = e.target[0].value
+    let html = mainContainer.innerHTML
+
+    meta = {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            html: html,
+            image: image
+        })
+    }
+  
+    fetch(URL + "/" + user.username, meta)
+    .then(res => res.json())
+    .then(data => {
+        user = data
+        homePageConfig()
+    })
+
+    
+
+}
 
 {/* <div class="grid-x grid-padding-x small-up-1 medium-up-3 large-up-3 firstRow">
       <div class="cell auto cell-style">

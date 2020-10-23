@@ -280,7 +280,6 @@ html {
   .website{
     max-width: 100%;
     width: auto;
-    margin-left: 300px;
 
     
   }
@@ -351,26 +350,81 @@ html {
 }
 
 /************************o**************************************************/ 
+.card-container{
+  display: inline-block;
+  width: auto;
+}
  .card{
   background-color: $secondary-color;
   border-radius: 30px;
   border: transparent;
-  .name{
+  display: inline-flex;
+  margin: 15px;
+
+
+  #name{
     text-align: center;
     text-transform: uppercase;
+    color: $secondary-color;
   }
+
   span{
      text-align: right;
-     margin-right: 10px;
+     margin-right: 15px;
      margin-bottom: 8px;
      &:hover{
-       color: $font-color;
+       color: $secondary-color;
      }
   }
+
   h4{
        text-align: center;
   }
+
   img{
     border-radius: 100px;
   }
+
+  p{
+    color: $font-color;
+  }
+
+ }
+
+ #profile-card{
+   background-color: $primary-color;
+   .name{
+     color: $secondary-color;
+   }
+  
+ }
+ #profile-card2{
+  background-color: $primary-color;
+  margin-top: 80px;
+  h4{
+    color: $secondary-color;
+  }
+  p{
+    color: $font-color;
+  }
+ }
+
+ .pro{
+   margin-left: 60px;
+   h4{
+     color: $primary-color;
+   }
+   p{
+     color:$primary-color;
+   }
+
+   span{
+    text-align: right;
+    margin-right: 15px;
+    margin-bottom: 8px;
+    &:hover{
+      color: $primary-color;
+    }
+ }
+
  }

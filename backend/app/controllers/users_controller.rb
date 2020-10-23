@@ -15,6 +15,19 @@ class UsersController < ApplicationController
     def create
 
         user = User.new(first_name: params[:first_name], last_name: params[:last_name], username: params[:username], password: params[:password])
+        user.image = "https://www.likemind.media/wp-content/uploads/2017/06/Profile-Photo.png"
+
+        user.html = "<div class='card' style='width: 300px;'>
+        <div class='name'>
+            #{user.first_name} #{user.last_name}
+        </div>
+        <img src=#{user.image}>
+        <div class='card-section'>
+            <h4 class='status-name skill-name'>Status header</h4>
+            <p  class='status-description skill-description'>Status description</p>
+        </div>
+        <span class= 'buttonIcon' id='b3'><i class='far fa-edit profile-edit'></i></span>
+    </div>"
 
         if user.save
 
@@ -44,10 +57,16 @@ class UsersController < ApplicationController
     end
 
     def update
-        # idk
+        #just for images
+        user = User.find_by(username: params[:id])
+
+        user.update(image: params[:image], html: params[:html])
+
+        if user.save
+
+            render json: user
+            
+        end
     end
     
 end
-
-# else 
-#     render :json => { :errors => user.errors.full_messages }, :status => 500
